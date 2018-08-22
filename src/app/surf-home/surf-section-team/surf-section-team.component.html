@@ -4,27 +4,6 @@
 			<div class="row">
 				<div class="col-10 offset-1">
 					
-					<surf-carousel-2 [cycled]="true" [slidersQuantity]="{'0': 1, '400': 2, '740': 3, '900': 4}">
-						
-						<ng-container *ngFor="let worker of teamData">
-							<ng-template carouselSlide>
-								<div class="team-member">
-									<a class="team-member-link" href="{{worker.accountLink}}"></a>
-									<img [src]="worker.srcLink" [alt]="worker.firstname + ' ' + worker.surname">
-									<h5>{{worker.firstname + ' ' + worker.surname}}</h5>
-									<p>{{worker.accountName}}</p>
-									<p class="waved-divider">
-										<span class="black-waved-divider"></span>
-										<span class="blue-waved-divider"></span>
-									</p> 
-									<p ><i class="fa fa-map-marker" aria-hidden="true"></i> {{worker.address}}</p>
-										
-								</div><!-- /.carousel-item team-member -->
-							</ng-template>
-						</ng-container>
-						
-					</surf-carousel-2>
-					<br><hr><br> 
 					<owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)">
           
 						<ng-container *ngFor="let worker of teamData">

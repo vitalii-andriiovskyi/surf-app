@@ -1,0 +1,123 @@
+@import "../../vars.sass"
+
+.top-panel
+	z-index: 3
+	position: absolute
+	width: 100%
+
+.show
+	overflow: hidden
+nav.navbar.bootsnav
+	padding-top: 24px
+	padding-bottom: 110px
+	border-bottom: none
+	background: none
+	ul.nav
+		padding-top: 8px
+		padding-bottom: 10px
+		> li
+			> a
+				font-family: "Montserrat"
+				font-size: 14 / $basefont + em
+				font-weight: 600
+				text-transform: uppercase
+				color: #000
+				transition: all 0.4s
+				&:hover,
+				&:focus,
+				&.active-navbar-a
+					background-color: #00b0ff
+					color: #fff
+
+.navbar-right
+	margin-right: 0 !important
+
+.attr-nav
+	padding-top: 10px	
+	margin-right: 0
+	>ul
+		margin-bottom: 6px
+		>li
+			+ li
+				padding-left: 5px
+			>a
+				z-index: 12
+				position: relative
+				display: inline-block
+				width: 36px
+				height: 36px
+				padding: 0
+				border-radius: 18px
+				background-color: #000
+				cursor: pointer
+				transition: all 0.3s
+				color: #000
+				span, i
+					position: absolute
+					top: 50%
+					left: 50%
+					transform: translate(-50%, -50%)
+					transition: all 0.2s
+				i
+					font-size: 20 / $basefont + em
+					color: #fff
+				&:hover
+					color: $accent-color
+					background-color: #fff
+					i
+						color: #000
+					&::before
+						background-color: $accent-color
+					.black-img
+						visibility: visible
+						opacity: 1
+					.white-img
+						visibility: hidden
+						opacity: 0
+
+
+
+.bootsnav
+	.navbar-brand
+		padding-top: 0
+		margin-right: 0
+		font-family: "Montserrat", sans-serif
+		font-size: 34 / $basefont + em
+		font-weight: 700
+		color: #000
+		line-height: 1
+		
+.navbar-toggler
+	padding-top: 0
+	padding-right: 0
+	&:focus
+		outline: none
+.black-img
+	visibility: hidden
+	opacity: 0
+
+.bg-envelop 
+	width: 19px
+	height: 14px
+	background: url('../../assets/img/soc-icons-sprites.png') -17px	-17px
+
+
+.bg-instagram 
+	width: 16px
+	height: 16px
+	background: url('../../assets/img/soc-icons-sprites.png') -0 -0
+
+.bg-envelop-black
+	width: 19px
+	height: 14px
+	background: url('../../assets/img/soc-icons-sprites-black.png') -16px -0
+
+.bg-instagram-black
+	width: 16px
+	height: 16px
+	background: url('../../assets/img/soc-icons-sprites-black.png') -0 -0
+
+@media only screen and (max-width : 1200px)
+
+	nav.navbar.bootsnav
+		padding-bottom: 20px

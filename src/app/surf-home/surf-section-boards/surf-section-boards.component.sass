@@ -1,0 +1,209 @@
+@import "../../../vars.sass"
+
+.section-boards
+	z-index: 2
+	position: relative
+	margin-bottom: 180px
+.boards-carousel
+	position: relative
+.boards-carousel-stage
+	overflow: hidden
+	position: relative
+
+
+.boards-carousel-item-wrapper
+	// float: left
+	position: absolute
+	top: 0
+	//left: 0
+	//width: 100%
+.boards-nav
+	z-index: 3
+	position: absolute
+	top: -30px
+	right: -42px
+	width: 81px
+	height: 40px
+	font-size: 0
+	.boards-prev,
+	.boards-next
+		display: inline-block
+		width: 39px
+		height: 40px
+		background-color: #f2d800
+		background-position: center center
+		background-repeat: no-repeat
+		cursor: pointer
+	.boards-prev
+		width: 40px
+		border-right: 1px solid darken( #f2d800, 10%)
+		background-image: url(../../../assets/img/arrow-left.png)
+	.boards-next
+		background-image: url(../../../assets/img/arrow-right.png)
+	.disabled
+		background-color: rgba(#f2d800, 0.3)
+		cursor: not-allowed
+
+.boards-wrapper
+	position: relative
+	background-color: #fff
+	box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.34)
+	&::before
+		content: ''
+		z-index: 0
+		position: absolute
+		left: 0
+		right: 50%
+		top: 0
+		bottom: 0
+		background-image: linear-gradient(to bottom right, $accent-color 50%, transparent 50%)
+	h2
+		position: absolute
+		right: 0
+		top: 0
+		margin-top: -102px
+		transform: rotate(-90deg)
+		transform-origin: 100% 100%
+		font-size: 127 / $basefont + em
+		font-weight: 700
+		letter-spacing: 7px
+
+.board-description-wrapper
+	padding: 0 35px 0 50px
+	time
+		// Style for "Shape
+		// width: 58px
+		// height: 38px
+		padding: 7px 9px
+		margin: 0 -35px 0 0 
+		background-color: black
+		font-family: "Montserrat"
+		font-size: 14 / $basefont + em
+		font-weight: 400
+		color: #fff
+
+
+
+.price
+	// width: 96px
+	// height: 21px
+	margin-right: 25px
+	color: #000
+	font-family: "Montserrat", sans-regular
+	font-size: 24 / $basefont + em
+	font-weight: 700
+	vertical-align: -6px
+
+
+
+
+
+
+
+/*==========  Desktop First Method  ==========*/
+@media only screen and (max-width: 1200px)
+	
+	.section-boards
+		margin-bottom: 120px
+
+	.board-description-wrapper
+		padding-left: 35px
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px)
+	.top-panel-header-description
+		padding-bottom: 90px
+	.section-boards
+		margin-bottom: 80px
+	
+	.boards-wrapper
+		overflow: hidden
+		h2
+			top: 45px
+		&::before
+			background: #fff
+
+	.board-description
+		margin-bottom: 40px
+
+	.top-panel-header-description
+		h1
+			font-size: 40 / $basefont + em
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px)
+	.top-panel-header-description
+		padding-bottom: 50px
+
+	.top-panel-header-description
+		h1
+			//margin-bottom: -5px
+			font-size: 30 / $basefont + em
+			line-height: 1
+		p
+			font-size: 1em
+
+	.boards-wrapper
+		h2
+			margin-bottom: -20px
+			line-height: 0.8
+
+
+		
+	/*Disable Animation on Mobile Devices*/
+	.animated
+		/*CSS transitions*/
+		-o-transition-property: none !important
+		-moz-transition-property: none !important
+		-ms-transition-property: none !important
+		-webkit-transition-property: none !important
+		transition-property: none !important
+		/*CSS transforms*/
+		-o-transform: none !important
+		-moz-transform: none !important
+		-ms-transform: none !important
+		-webkit-transform: none !important
+		transform: none !important
+		/*CSS animations*/
+		-webkit-animation: none !important
+		-moz-animation: none !important
+		-o-animation: none !important
+		-ms-animation: none !important
+		animation: none !important
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	
+	.top-panel-header-description
+		h1
+			padding: 0 10px 
+			margin-top: 20px
+			
+	.section-boards
+		margin-bottom: 60px
+	
+
+	.board-description-wrapper
+		padding: 0 10px
+		h4
+			font-size: 1.1em
+		time
+			margin-right: -10px
+
+	.board-description 
+		.table
+			td, 
+			th
+				padding: 0.2rem 
+
+	
+	.boards-carousel-stage
+		padding: 0 10px
+
+	.boards-carousel-item-wrapper
+		padding-right: 10px
+	
+
+
+

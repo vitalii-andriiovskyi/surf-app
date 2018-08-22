@@ -1,0 +1,101 @@
+@import "../../../vars.sass"
+
+.team-member
+	position: relative
+	padding: 30px 15px 35px
+	margin: 14px -28px 14px 14px
+	border-radius: 4px
+	background-color: #fff
+	box-shadow: 0 0 50px rgba(0, 0, 0, 0.2) 
+	text-align: center
+	transition: all 0.2s
+	color: #8c8c8c
+	img
+		width: 100px
+		max-width: 100%
+		margin: 0 auto 14px
+		border: 2px solid #fff
+		border-radius: 50%
+	p
+		margin-bottom: 0
+	.fa
+		color: #d9d9d9
+	.team-member-link
+		z-index: 10
+		position: absolute
+		left: 0
+		right: 0
+		top: 0
+		bottom: 0
+		
+.section-our-team
+	overflow: hidden
+	padding-bottom: 150px
+	h2
+		margin-bottom: -50px
+	.surf-carousel-2
+		.team-member
+			img
+				width: 100px
+				max-width: 100%
+				margin: 0 auto 14px
+				border: 2px solid #fff
+				border-radius: 50%
+	h5
+		margin-bottom: 0
+
+.waved-divider
+	position: relative
+	height: 32px
+	span
+		position: absolute
+		left: 0
+		top: 0
+		right: 0
+		bottom: 0
+		background-repeat: no-repeat
+		background-position: center center
+		transition: all 0.2s
+
+.black-waved-divider
+	visibility: visible
+	opacity: 1
+	background-image: url(../../../assets/img/waves-gray.png)
+
+.blue-waved-divider
+	visibility: hidden
+	opacity: 0
+	background-image: url(../../../assets/img/waves-blue.png)
+
+.surf-carousel-2-sliders-wrapper
+	overflow: hidden
+
+@media only screen and (max-width : 1200px)
+	.section-our-team
+		h2
+			margin-bottom: -20px
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 991px)
+	.section-our-team
+		padding-bottom: 100px
+		h2
+			margin-bottom: 0
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px)
+	.section-our-team
+		padding-bottom: 80px
+
+@media only screen and (max-width : 575px)
+	.team-member
+		max-width: 220px
+		margin: 0 auto
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	.section-our-team
+		padding-bottom: 60px
+		h2
+			margin-bottom: 10px
+		

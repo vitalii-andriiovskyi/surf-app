@@ -1,0 +1,33 @@
+<section class="section-about-us">
+	<header>
+		<h2>About us</h2>
+		<div class="section-bg" style="background-image: url(/assets/img/surfing-man.png)"></div>
+	</header>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-lg-4 offset-lg-1">
+				
+				<article class="about-us-description">
+					<h3 class="h3-crosshair">We are Surfers co.</h3>
+					<p><i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde nihil laudantium minus iusto aspernatur iste porro, voluptatum ad explicabo aliquam soluta provident dolor ea eaque, sunt ipsum voluptatem fuga cum!</i></p>
+					<p><a [routerLink]="['/about-us-page']" class="classic-a">Read more</a></p>
+
+				</article> <!-- /.about-us-description -->
+
+			</div> <!-- /.col-md-6 col-lg-4 offset-lg-1-->
+			<div class="col-md-6 col-lg-6 offset-lg-1">
+				
+				<div class="about-us-video-wrapper">
+					<div class="play-button" [ngClass]="{'hidden': isHidden}" (click)="playVideo(); isHidden = !isHidden;"></div>
+					<img [src]="['assets/img/surfing-man-2.png']" alt="About us" [ngClass]="{'hidden': isHidden}" (click)="playVideo(); isHidden = !isHidden;">
+					<youtube-player *ngIf="isYoutubeVisible"
+						[videoId]="id" 
+						(ready)="savePlayer($event)"
+						(change)="onStateChange($event)"
+					></youtube-player>
+				</div> <!-- /.about-us-video-wrapper -->
+
+			</div> <!-- /.col-md-6 col-lg-4 offset-lg-1-->
+		</div> <!-- /.row -->
+	</div> <!-- /.container -->
+</section> <!-- /.section-about-us -->

@@ -1,0 +1,39 @@
+<section class="section-blog">
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h3 class="h3-crosshair">Latest updates</h3>
+				</div><!-- /.col-lg-12 -->
+				<div class="col-lg-10 offset-lg-1">
+					
+					<div class="blog-items-wrapper">
+						
+						<div class="row">
+							<div class="col-md-4" *ngFor="let blog of postData">
+								<div class="card custom-card rounded-0 border-0">
+									<a class="covering-a" [routerLink]="['/blog', blog.id]"></a>
+
+									<img [src]="[blog.imageSrc]" [alt]="blog.imageDesc">
+									<div class="card-body">
+										<div class="card-text" [innerHTML]="blog.summary"></div>
+										<!-- <div class="card-text" [surfAddContent]="blog.summary"></div> -->
+									</div>
+								</div> <!-- /.card custom-card -->
+							</div> <!-- /.col-md-4 -->
+
+							
+
+						</div> <!-- /.row -->
+
+					</div><!-- /.blog-items-wrapper -->
+
+
+				</div> <!-- .col-lg-10 offset-lg-1 -->
+				<div class="col-lg-12">
+					<p class="text-center mt-md-5 "><a [routerLink]="['/blog']" class="btn btn-main">View all posts</a></p>
+				</div><!-- /.col-lg-12 -->
+			</div> <!-- /.row -->
+		</div> <!-- /.container -->
+
+	</section><!-- /.section-blog -->

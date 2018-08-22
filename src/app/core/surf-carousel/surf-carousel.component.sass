@@ -1,0 +1,65 @@
+@import "../../../vars.sass"
+
+.surf-carousel
+	position: relative
+	padding: 1px 0
+.surf-carousel-stage
+	overflow: hidden
+	position: relative
+	margin: 40px 0 30px
+
+
+
+.surf-carousel-items-wrapper
+	// float: left
+	position: absolute
+	top: 0
+	//left: 0
+	//width: 100%
+.surf-carousel-nav
+	z-index: 3
+	position: absolute
+
+.boards-nav
+	z-index: 3
+	position: absolute
+	top: 10px
+	right: -42px
+	width: 81px
+	height: 40px
+	font-size: 0
+	.boards-prev,
+	.boards-next
+		display: inline-block
+		width: 39px
+		height: 40px
+		background-color: #f2d800
+		background-position: center center
+		background-repeat: no-repeat
+		cursor: pointer
+	.boards-prev
+		width: 40px
+		border-right: 1px solid darken( #f2d800, 10%)
+		background-image: url(../../../assets/img/arrow-left.png)
+	.boards-next
+		background-image: url(../../../assets/img/arrow-right.png)
+	.disabled
+		background-color: rgba(#f2d800, 0.3)
+		cursor: not-allowed
+
+.surf-carousel-nav.surf-carousel-nav-fixed
+	position: fixed
+	top: 10px
+	bottom: auto
+
+.surf-carousel-nav.surf-carousel-nav-bottomed
+	top: auto
+	bottom: 10px
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+	.boards-nav
+		right: -2px
+		top: 10px
+	.surf-carousel-stage
+		margin: 50px 0 30px

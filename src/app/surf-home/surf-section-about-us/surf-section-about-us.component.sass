@@ -1,0 +1,163 @@
+@import "../../../vars.sass"
+
+.section-about-us
+	overflow: hidden
+	position: relative
+	padding: 410px 0 100px
+	> header
+		position: absolute
+		left: 0
+		right: 0
+		top: 0
+		h2
+			margin-bottom: 0
+	.section-bg
+		position: relative
+		min-height: 640px
+		background-position: center 0
+		&::before
+			content: ''
+			position: absolute
+			left: 0
+			right: 0
+			bottom: 0
+			top: 0
+			background-image: linear-gradient(to top, rgba(0, 0, 0, 0.25) 0%, transparent 100%, transparent 100%)
+
+.about-us-description
+	position: relative
+	padding: 100px 0 50px
+	&::before
+		content: ''
+		z-index: 0
+		position: absolute
+		left: -1000px
+		right: -25%
+		top: 0
+		bottom: 0
+		background-color: #fff
+	* 
+		z-index: 5  
+		position: relative
+	p:not(:last-child)
+		color: #000
+		font-family: "PlayfairDisplayItalic", sans-serif
+		font-size: 22 / $basefont + em
+		line-height: 38 / 22
+
+
+.about-us-video-wrapper
+	display: inline-block
+	position: relative
+	margin-top: 265px
+	box-shadow: 20px 20px 35px rgba(0, 0, 0, 0.14)
+	img
+		z-index: 10
+		position: relative
+		max-width: 100%
+		&.hidden
+			z-index: 0
+	.play-button
+		z-index: 11
+		position: absolute
+		left: 50%
+		top: 50%
+		transform: translate(-50%, -50%)
+		&.hidden
+			z-index: 0
+			
+
+@media only screen and (max-width : 1200px)
+	.section-about-us
+		padding: 310px 0 100px
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+	.section-about-us
+		padding: 250px 0 50px
+		.section-bg
+			min-height: 440px
+
+	.about-us-description
+		padding: 30px 0
+		&::before
+			right: 0
+
+	.about-us-video-wrapper
+		margin-top: 200px
+	
+
+	
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px)
+	.section-about-us
+		padding: 50px 0 30px
+		.section-bg
+			background-image: none!important
+			&:before
+				background: transparent
+			//background-position: left center
+
+	.about-us-description
+		position: relative
+		//margin-top: -20px
+		&:after
+			content: ''
+			//z-index: 10
+			position: absolute
+			left: -140px
+			right: -140px
+			top: 0
+			bottom: 0
+			background-color: red
+			background-image: url(../../../assets/img/surfing-man.png)
+			background-position: left center
+
+		h3,
+		p:not(:last-child)
+			color: #fff
+		&::before
+			opacity: 0
+
+	.about-us-video-wrapper
+		margin-top: 20px
+		
+	/*Disable Animation on Mobile Devices*/
+	.animated
+		/*CSS transitions*/
+		-o-transition-property: none !important
+		-moz-transition-property: none !important
+		-ms-transition-property: none !important
+		-webkit-transition-property: none !important
+		transition-property: none !important
+		/*CSS transforms*/
+		-o-transform: none !important
+		-moz-transform: none !important
+		-ms-transform: none !important
+		-webkit-transform: none !important
+		transform: none !important
+		/*CSS animations*/
+		-webkit-animation: none !important
+		-moz-animation: none !important
+		-o-animation: none !important
+		-ms-animation: none !important
+		animation: none !important
+
+
+@media only screen and (max-width : 480px)
+	.section-about-us
+		padding: 35px 0 30px
+		> header
+			h2
+				margin-bottom: 10px
+		
+	.about-us-description
+		p:not(:last-child)
+			font-size: 18 / $basefont + em
+			text-align: center
+
+@media only screen and (min-width : 1600px)
+	.section-about-us
+		.section-bg
+			background-size: 100%

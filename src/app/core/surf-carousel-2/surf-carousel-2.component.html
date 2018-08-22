@@ -1,0 +1,29 @@
+<div class="surf-carousel-2" #surfCarousel2>
+	<div class="surf-carousel-2-nav">
+		<div class="surf-carousel-2-prev" [class.disabled]="prevDisabled" (click)="prevSlide(-1)"></div>
+		<div class="surf-carousel-2-next" [class.disabled]="nextDisabled" (click)="nextSlide(1)"></div>
+	</div> <!-- /.boards-nav surf-carousel-nav -->
+
+	<div class="surf-carousel-2-sliders-wrapper clearfloat">
+		<div class="surf-carousel-2-stages-wrapper" [ngStyle]="{'width': stagesWrapperWidth + 'px'}" >
+		
+			<div class="surf-carousel-2-stage" [ngStyle]="{'width': sliderWidth*slides.length + 'px', 'transform': 'translateX(' + translateXFirstStage + 'px)', '-webkit-transform': 'translateX(' + translateXFirstStage + 'px)', 'visibility': visibleFirstStage }" >
+				<ng-container *ngFor="let slide of slides; let i = index">
+					<div class="surf-carousel-2-slide-wrapper" [ngClass]="{'active': slidersFirstStageData[i].active}" [ngStyle]="{'width': sliderWidth + 'px'}">
+						<ng-template [ngTemplateOutlet]="slide.tplRef"></ng-template>
+					</div><!-- /.surf-carousel-item-wrapper --> 
+				</ng-container>
+			</div> <!-- /.surf-carousel-2-stage -->
+
+			<div class="surf-carousel-2-stage" *ngIf="cycled" [ngStyle]="{'width': sliderWidth*slides.length + 'px', 'margin-top': marTop + 'px', 'transform': 'translateX(' + translateXSecondStage + 'px)', '-webkit-transform': 'translateX(' + translateXSecondStage + 'px)', 'visibility': visibleSecondStage}" >
+				<ng-container *ngFor="let slide of slides; let i = index">
+					<div class="cycled surf-carousel-2-slide-wrapper" [ngClass]="{'active': slidersSecondStageData[i].active}" [ngStyle]="{'width': sliderWidth + 'px'}">
+						<ng-template [ngTemplateOutlet]="slide.tplRef"></ng-template>
+					</div><!-- /.surf-carousel-item-wrapper --> 
+				</ng-container>
+			</div> <!-- /.surf-carousel-2-stage -->
+			
+		</div> <!-- /.surf-carousel-2-stages-wrapper -->
+  </div> <!-- /.surf-carousel-2-sliders-wrapper -->
+
+</div> <!-- /.surf-carousel-2 -->

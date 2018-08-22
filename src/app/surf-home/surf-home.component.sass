@@ -1,0 +1,93 @@
+@import "../../vars.sass"
+
+.home-page
+	position: relative
+	padding-bottom: 0
+	background-position: center 0
+	background-repeat: no-repeat
+	// &::before,
+	// &::after
+	// 	content: ''
+	// 	z-index: 0
+	// 	position: absolute
+	// 	left: 0
+	// 	right: 0
+	// 	top: 0
+	// 	bottom: 0
+	// &::before
+	// 	background-color: #000
+	// 	opacity: 0.1	
+	// &::after
+	// 	background-image: linear-gradient(transparent 50%, transparent 51%, #fff)
+	*
+		z-index: 2
+
+.top-panel-header-description
+	z-index: 2
+	position: relative
+	padding-bottom: 145px
+	font-family: "PlayfairDisplayItalic", sans-serif
+	text-align: center
+	h1
+		margin-bottom: 5px
+		font-size: 50 / $basefont + em
+		font-weight: 400
+		line-height: 1.05
+	p
+		font-size: 24 / $basefont + em
+		color: #fff
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px)
+
+	.top-panel-header-description
+		padding-bottom: 90px
+		h1
+			font-size: 40 / $basefont + em
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px)
+
+	.top-panel-header-description
+		padding-bottom: 50px
+		h1
+			//margin-bottom: -5px
+			font-size: 30 / $basefont + em
+			line-height: 1
+		p
+			font-size: 1em
+
+
+		
+	/*Disable Animation on Mobile Devices*/
+	.animated
+		/*CSS transitions*/
+		-o-transition-property: none !important
+		-moz-transition-property: none !important
+		-ms-transition-property: none !important
+		-webkit-transition-property: none !important
+		transition-property: none !important
+		/*CSS transforms*/
+		-o-transform: none !important
+		-moz-transform: none !important
+		-ms-transform: none !important
+		-webkit-transform: none !important
+		transform: none !important
+		/*CSS animations*/
+		-webkit-animation: none !important
+		-moz-animation: none !important
+		-o-animation: none !important
+		-ms-animation: none !important
+		animation: none !important
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	
+	.top-panel-header-description
+		h1
+			padding: 0 10px 
+			margin-top: 20px
+			
+	

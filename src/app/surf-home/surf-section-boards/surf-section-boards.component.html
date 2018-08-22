@@ -1,0 +1,103 @@
+	<section class="section-boards">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-10 offset-xl-1">
+					
+					
+
+					<div class="boards-wrapper">
+						<h2>Boards</h2>
+						<surf-carousel>
+							<ng-container *ngFor="let boardItem of boardsData;">
+								<ng-template carouselSlide [id]="boardItem.id">
+									<div class="row">
+										<div class="col-lg-6 order-1 order-lg-2">
+											
+											<div class="board-description-wrapper ">
+												<h4>{{boardItem.title}}</h4>
+												<div class="voting-stars-wrapper d-flex align-items-center">
+													<span class="list-inline voting-stars">
+														<span class="voting-stars-chosen" [style.width]="boardItem.votingStarsRange"></span>
+														<span class="voting-stars-shell"></span>
+													</span>
+													<span>({{boardItem.votingStarsNumber}})</span>
+													<time class="ml-auto">{{boardItem.date | date:"MM/dd"}}</time>
+												</div> <!-- /.voting-stars-wrapper d-flex justify-content-between -->
+												<div class="board-description">
+
+													<ngb-tabset-expanded (tabChange)="collectActivatedTabs(boardItem.id, boardItem.tabset1.tabseId, $event)" [id]="boardItem.tabset1.tabseId">
+														<ngb-tab title="Description" [id]="boardItem.tabset1.tabseId+0">
+															<ng-template ngbTabContent>
+													      <div>{{boardItem.tabset1.description}}</div>
+													    </ng-template>
+														</ngb-tab>
+														<ngb-tab title="Features" [id]="boardItem.tabset1.tabseId+1">
+															<ng-template ngbTabContent>
+													      <div>{{boardItem.tabset1.features}}</div>
+													    </ng-template>
+														</ngb-tab>
+														
+														<ngb-tab title="Dimensions" [id]="boardItem.tabset1.tabseId+2">
+															<ng-template ngbTabContent>
+													      <table class="table table-striped table-hover" id="surfboard-dimensions-table" >
+															   <tbody>
+															      <tr style="opacity: 1;">
+															         <th>size</th>
+															         <th>width</th>
+															         <th>thickness</th>
+															         <th>volume</th>
+															      </tr>
+															      <tr style="opacity: 1;" *ngFor="let boardDimention of boardItem.tabset1.dimentions">
+															         <td>{{boardDimention.size}}</td>
+															         <td>{{boardDimention.width}}</td>
+															         <td>{{boardDimention.thickness}}</td>
+															         <td>{{boardDimention.volume}}</td>
+															      </tr>
+															      
+															   	</tbody>
+																</table>
+													    </ng-template>
+														</ngb-tab>
+													</ngb-tabset-expanded>
+
+
+													<strong class="price">{{boardItem.price | currency:'USD'}}</strong>
+													<a [routerLink]="['/boards', boardItem.id]" class="btn btn-main btn-small" >Buy now</a>
+
+												</div> <!-- /.board-description -->
+												<p><a [routerLink]="['/boards']" class="classic-a">View all boards</a></p>
+											</div> <!-- /.board-description-wrapper -->
+										</div><!-- /.col-lg-6  order-1 order-lg-2 -->
+
+										<div class="col-lg-6 order-2 order-lg-1">
+											
+											<div class="boards-images-wrapper">
+												<ngb-tabset-grided [justify]="currentJustify" [orientation]="currentOrientation" (tabChange)="collectActivatedTabs(boardItem.id, boardItem.tabset2.tabseId, $event)" [id]="boardItem.tabset2.tabseId">
+													<ng-container *ngFor="let boardTab of boardItem.tabset2.images; let i = index;">
+														<ngb-tab [id]="boardItem.tabset2.tabseId+i">
+															<ng-template ngbTabTitle>
+																<img [src]="boardTab.smallImage" [alt]="boardTab.alt">
+															</ng-template>
+															<ng-template ngbTabContent>
+																<img [src]="boardTab.bigImage" [alt]="boardTab.alt">
+															</ng-template>
+														</ngb-tab>
+													</ng-container>
+
+												</ngb-tabset-grided>
+
+											</div><!-- /.boards-images-wrapper -->
+
+										</div> <!-- /.col-lg-6 order-2 order-lg-1 -->
+									</div><!-- /.row -->
+								</ng-template>
+							</ng-container>
+						</surf-carousel>
+					</div><!-- /.boards-wrapper -->
+
+				</div> <!-- /.col-lg-10 offset-lg-1 -->
+			</div> <!-- /.row -->
+		</div> <!-- /.container -->
+	</section> <!-- ./section-boards -->
+
+

@@ -1,0 +1,326 @@
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+	h2
+		font-size: 130 / $basefont + em
+
+	.board-description
+		.nav-tabs
+			>li
+				+ li
+					margin-left: 15px
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 991px)
+	.common-page
+		padding-top: 140px
+
+	nav.navbar.bootsnav
+		padding-bottom: 80px
+		ul.nav
+			padding-top: 0
+			> li
+				+ li 
+					padding-left: 0
+				> a
+					//background-color: rgba(#fff,0.3)
+					border-top: none
+					border-bottom: 2px solid #e0e0e0
+					&:hover,
+					&:focus,
+					&.active-navbar-a
+						padding-left: 10px
+		.navbar-toggle
+			background-color: transparent
+	
+	.navbar-collapse
+		padding: 0 20px
+		background-color: rgba(#fff, 0.9)
+		box-shadow: 0 0 4px rgba(#000, 0.3)
+	.top-panel-header-description
+		h1
+			font-size: 40 / $basefont + em
+
+	.boards-images-wrapper
+		padding-top: 10px
+		margin-right: 0
+		.tab-content
+			.tab-pane
+				img
+					width: 70%
+					margin: 0 auto
+	
+	.section-our-team
+		.owl-carousel
+			margin: 0 0 0 -20px
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px)
+	.common-page
+		padding: 100px 0 20px
+
+	h2
+		font-size: 70 / $basefont + em
+
+	
+	nav.navbar.bootsnav
+		padding-top: 10px
+		padding-bottom: 30px
+
+	.attr-nav
+		padding-top: 8px
+
+	.top-panel-header-description
+		h1
+			//margin-bottom: -5px
+			font-size: 30 / $basefont + em
+			line-height: 1
+		p
+			font-size: 1 em
+
+
+
+	.boards-images-wrapper
+		.nav-tabs
+			width: 100%
+			margin: 0
+			text-align: center
+			li
+				margin-right: 4px
+			> li
+				float: none
+				display: inline-block
+		.tab-content
+			min-height: 480px
+	
+	.section-our-team
+		.surf-carousel-2-next
+			right: -93px
+		.surf-carousel-2-prev
+			left: -52px
+
+
+	/*Disable Animation on Mobile Devices*/
+	.animated
+		/*CSS transitions*/
+		-o-transition-property: none !important
+		-moz-transition-property: none !important
+		-ms-transition-property: none !important
+		-webkit-transition-property: none !important
+		transition-property: none !important
+		/*CSS transforms*/
+		-o-transform: none !important
+		-moz-transform: none !important
+		-ms-transform: none !important
+		-webkit-transform: none !important
+		transform: none !important
+		/*CSS animations*/
+		-webkit-animation: none !important
+		-moz-animation: none !important
+		-o-animation: none !important
+		-ms-animation: none !important
+		animation: none !important
+
+@media only screen and (max-width : 575px)
+	.section-our-team
+	
+		.surf-carousel-2
+			max-width: 250px
+			margin: 0 auto
+		.surf-carousel-2-slide-wrapper
+			&:nth-of-type(2n)
+				.team-member
+					margin-top: 0
+		.surf-carousel-2-next
+			right: -50px
+		.surf-carousel-2-prev
+			left: -50px
+		.surf-carousel-2-nav
+			margin-top: 0
+		.owl-carousel
+			margin: 0
+			.owl-nav
+				.owl-prev
+					left: -50px
+				.owl-next
+					right: -50px
+		.owl-item
+			&:nth-of-type(2n)
+				.team-member
+					margin-top: 0
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	h2
+		font-size: 50 / $basefont + em
+
+	.attr-nav
+		padding-top: 50px
+
+	.top-panel-header-description
+		h1
+			padding: 0 10px 
+			margin-top: 20px
+
+	.voting-stars-wrapper
+		margin-bottom: 20px
+	.board-description
+		margin-bottom: 30px	
+		.nav-tabs
+			margin-bottom: 14px
+			>li
+				+ li
+					margin-left: 5px
+			.nav-link
+				font-size: 13 / $basefont + em
+
+		.tab-content
+			margin-bottom: 20px
+
+
+	.boards-images-wrapper
+		.tab-content
+			min-height: 320px
+			.tab-pane
+				img
+					width: 90%
+
+	.section-our-team
+		.surf-carousel-2-slide-wrapper
+			&:nth-of-type(2n)
+				.team-member
+					margin-top: 0
+		.surf-carousel-2-next
+			right: -50px
+		.surf-carousel-2-prev
+			left: -50px
+		.surf-carousel-2-nav
+			margin-top: 0
+		
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+ /**/
+
+@media only screen and (max-width : 1200px)
+	.main-footer
+		padding-bottom: 50px
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 991px)
+	.main-footer
+		padding-top: 30px
+		padding-bottom: 30px
+	.main-footer-nav-wrapper
+		margin: 0 auto
+	.main-footer-nav
+		max-width: 400px
+		margin: 0 0 0 21%
+
+	.form-subscriber
+		margin: 30px auto 
+		//transform: translateX(20px)
+
+	.rights
+		margin-top: 0
+		text-align: center
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px)
+	
+
+	.main-footer-nav
+		// margin: 0 auto
+		// transform: translateX(50px)
+		
+		
+	/*Disable Animation on Mobile Devices*/
+	.animated
+		/*CSS transitions*/
+		-o-transition-property: none !important
+		-moz-transition-property: none !important
+		-ms-transition-property: none !important
+		-webkit-transition-property: none !important
+		transition-property: none !important
+		/*CSS transforms*/
+		-o-transform: none !important
+		-moz-transform: none !important
+		-ms-transform: none !important
+		-webkit-transform: none !important
+		transform: none !important
+		/*CSS animations*/
+		-webkit-animation: none !important
+		-moz-animation: none !important
+		-o-animation: none !important
+		-ms-animation: none !important
+		animation: none !important
+
+@media only screen and (max-width : 575px)
+	.main-footer-nav-wrapper
+		max-width: 302px
+	.main-footer-nav
+		margin: 0
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	.main-footer-nav
+		max-width: 300px
+		margin: 0 auto
+		transform: translateX(0)
+		li
+			display: block
+			margin: auto
+		.list-inline-item:not(:last-child)
+			margin-right: auto
+	.form-subscriber
+		.form-group
+			width: 100%
+		.form-control
+			max-width: 300px
+			width: 100%
+	
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px)
+ /**/
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px)
+ /**/
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px)
+ /**/
+
+
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)
+	nav.navbar.bootsnav
+		ul.nav
+			> li
+				> a
+					padding: 3px 10px
+
+@media only screen and (min-width : 1024px)
+ /**/
+	
+					
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px)
+	.container
+		max-width: 1200px
+
+@media only screen and (min-width : 1600px)
+	.bg-page
+		background-size: 100%
+

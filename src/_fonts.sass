@@ -1,0 +1,20 @@
+@function font-source-declaration($font-family,$file-path, $file-formats) { $src: (); $formats-map: (eot:   "#{$file-path}.eot?#iefix" format("embedded-opentype"),woff:  "#{$file-path}.woff" format("woff"),ttf:   "#{$file-path}.ttf" format("truetype"),);@each $key, $values in $formats-map {@if _contains($file-formats, $key) {$file-path: nth($values, 1);$font-format: nth($values, 2);$src: append($src, url($file-path) $font-format, comma);}}@return $src;}
+// @function font-source-declaration($font-family, $file-path, $file-formats) { $src: (); $formats-map: (eot:   "#{$file-path}.eot?#iefix" format("embedded-opentype"),woff2: "#{$file-path}.woff2" format("woff2"),woff:  "#{$file-path}.woff" format("woff"),ttf:   "#{$file-path}.ttf" format("truetype"),svg:   "#{$file-path}.svg##{$font-family}" format("svg"),);@each $key, $values in $formats-map {@if _contains($file-formats, $key) {$file-path: nth($values, 1);$font-format: nth($values, 2);$src: append($src, url($file-path) $font-format, comma);}}@return $src;}
+	
+=font-face($font-family, $file-path, $weight: normal, $style: normal, $file-formats: eot woff2 woff ttf svg, $unicode: U+0000-00FF) 
+	@font-face
+		font-family: $font-family 
+		font-style: $style
+		font-weight: $weight
+		src: font-source-declaration($font-family, $file-path, $file-formats)
+		unicode-range: $unicode
+
+
++font-face("HelveticaLTStd-Bold", "/assets/fonts/HelveticaLTStd-Bold/HelveticaLTStd-Bold", bold, $file-formats: eot woff ttf)
++font-face("HelveticaLTStd-Roman", "/assets/fonts/HelveticaLTStd-Roman/HelveticaLTStd-Roman", $file-formats: eot woff ttf)
++font-face("PlayfairDisplayItalic", "/assets/fonts/PlayfairDisplayItalic/PlayfairDisplayItalic", $style: italic, $file-formats: eot woff ttf)
++font-face("Raleway", "/assets/fonts/Raleway/Raleway", $file-formats: eot woff ttf)
++font-face("RalewayBold", "/assets/fonts/RalewayBold/RalewayBold", bold, $file-formats: eot woff ttf)
++font-face("RalewaySemiBold", "/assets/fonts/RalewaySemiBold/RalewaySemiBold", $file-formats: eot woff ttf)
++font-face("RobotoCondensedBold", "/assets/fonts/RobotoCondensedBold/RobotoCondensedBold", bold, $file-formats: eot woff ttf)
+ 

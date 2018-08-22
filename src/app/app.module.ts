@@ -1,20 +1,48 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { CoreModule } from './core/core.module';
+import { TopMenuModule } from './top-menu/top-menu.module';
+import { SurfHomeModule } from './surf-home/surf-home.module';
+import { FacebookModule } from 'ngx-facebook';
+import { SurfFooterModule } from './surf-footer/surf-footer.module';
+import { BlogModule } from './blog/blog.module';
+import { HttpClientModule } from '@angular/common/http';
+
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule,
+    CoreModule.forRoot(),
+    NgbModule.forRoot(),
+    FacebookModule.forRoot(),
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    HttpClientModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+    BrowserAnimationsModule,
+    TopMenuModule,
+    SurfHomeModule,
+    SurfFooterModule,
+    BlogModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+
+  ],
+  exports: [BrowserAnimationsModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

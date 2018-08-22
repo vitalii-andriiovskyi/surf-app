@@ -1,0 +1,17 @@
+<div class="boards-carousel surf-carousel" #surfCarousel>
+	<div class="boards-nav surf-carousel-nav" [ngClass]="{'surf-carousel-nav-fixed': navPositionState.fixed, 'surf-carousel-nav-bottomed': navPositionState.bottomed}" [(surfMakeNavSticky)]="navPositionState">
+		<div class="boards-prev surf-carousel-prev" [class.disabled]="prevDisabled" (click)="prevSlide()"></div>
+		<div class="boards-next surf-carousel-next" [class.disabled]="nextDisabled" (click)="nextSlide()"></div>
+	</div> <!-- /.boards-nav surf-carousel-nav -->
+
+	<div class="surf-carousel-stage"  [ngSwitch]="currentSlideId" [ngStyle]="{'height': parentHeight + 'px'}">
+		<ng-container *ngFor="let slide of slides">
+			<div class="boards-carousel-item-wrapper surf-carousel-items-wrapper" [@carouselState]="carouselSliderState" *ngSwitchCase="slide.id">
+				<div [surfCurrentHeight]="slide.id == currentSlideId && viewReady" (surfDefineHeight)="parentHeight=$event">
+					<ng-template [ngTemplateOutlet]="slide.tplRef"></ng-template>			
+				</div>
+			</div><!-- /.boards-carousel-item-wrapper surf-carousel-items-wrapper --> 
+		</ng-container>
+	</div> <!-- /.surf-carousel-stage -->
+
+</div> <!-- /.boards-carousel surf-carousel-->

@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
+
+import { Directive } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'surf-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
-export class AppComponent {
-  title = 'app';
+export class AppComponent implements AfterViewInit {
+  ngAfterViewInit() {   }
+
 }

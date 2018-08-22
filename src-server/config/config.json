@@ -1,0 +1,11 @@
+{
+  "port": 4040,
+  "mongoose": {
+		"uri": "mongodb://localhost/surf",
+		"options": { 
+			"socketTimeoutMS": 0,
+			"keepAlive": true,
+			"reconnectTries": 30
+		}
+	}
+}

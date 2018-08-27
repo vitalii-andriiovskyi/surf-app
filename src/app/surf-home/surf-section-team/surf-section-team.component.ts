@@ -3,6 +3,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { TeamData } from './team-data';
+import { SlidesOutputData } from 'ngx-owl-carousel-o';
 @Component({
   selector: 'surf-section-team',
   templateUrl: './surf-section-team.component.html',
@@ -37,7 +38,7 @@ export class SurfSectionTeamComponent implements OnInit, OnDestroy {
     nav: true
   };
 
-  activeSlides: any;
+  activeSlides: SlidesOutputData;
 
   constructor() { }
 

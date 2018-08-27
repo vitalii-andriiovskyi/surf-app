@@ -17,21 +17,21 @@ import { LocationService } from './services/location.service';
 
 import { Logger } from './services/logger.service';
 import { SwUpdatesService } from './sw-updates/sw-updates.service';
-import { RouterLinkStubDirective, RouterOutletStubComponent } from '../../testing';
+import { ScrollDirective } from './directives/scroll.directive';
 
 @NgModule({
   imports:      [ CommonModule, SurfCarouselModule, SurfCarousel2Module ],
   declarations: [
     PageNotFoundComponent,
     CatchScrollOuterzoneDirective,
-    RouterLinkStubDirective,
-    RouterOutletStubComponent
+    ScrollDirective
   ],
   exports:      [
     SurfCarouselModule,
     SurfCarousel2Module,
     PageNotFoundComponent,
     CatchScrollOuterzoneDirective,
+    ScrollDirective
   ],
   providers: [
     // WindowRefService,

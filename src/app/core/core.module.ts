@@ -18,20 +18,23 @@ import { LocationService } from './services/location.service';
 import { Logger } from './services/logger.service';
 import { SwUpdatesService } from './sw-updates/sw-updates.service';
 import { ScrollDirective } from './directives/scroll.directive';
+import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 
 @NgModule({
   imports:      [ CommonModule, SurfCarouselModule, SurfCarousel2Module ],
   declarations: [
     PageNotFoundComponent,
     CatchScrollOuterzoneDirective,
-    ScrollDirective
+    ScrollDirective,
+    ScrollToTopComponent
   ],
   exports:      [
     SurfCarouselModule,
     SurfCarousel2Module,
     PageNotFoundComponent,
     CatchScrollOuterzoneDirective,
-    ScrollDirective
+    ScrollDirective,
+    ScrollToTopComponent
   ],
   providers: [
     // WindowRefService,

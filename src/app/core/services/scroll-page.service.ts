@@ -26,4 +26,11 @@ export class ScrollPageService {
     );
   }
 
+  distance(newScroll: number, currentScroll: number): (t: number) => number {
+    if (newScroll < 0 ) { newScroll = 0; }
+    const d = newScroll - currentScroll;
+    return (t: number) => t * d + currentScroll;
+  }
+
+  
 }

@@ -8,7 +8,7 @@ import { ScrollPageService } from '../services/scroll-page.service';
 })
 export class ScrollToTopComponent implements OnInit {
 
-  isShown: false;
+  isHidden = true;
 
   constructor(private scrollPageService: ScrollPageService) { }
 

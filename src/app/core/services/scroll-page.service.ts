@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { defer, animationFrameScheduler, interval, Subject } from 'rxjs';
 import { map, takeWhile } from 'rxjs/operators';
+import { ScrollModel } from '../models/scroll.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScrollPageService {
-  private _initScrollTo$ = new Subject<number>();
+  private _initScrollTo$ = new Subject<ScrollModel>();
 
   constructor() { }
 
@@ -14,7 +15,7 @@ export class ScrollPageService {
     return this._initScrollTo$.asObservable();
   }
 
-  passNewScrollTop(newScroll: number) {
+  passNewScrollTop(newScroll: ScrollModel) {
     this._initScrollTo$.next(newScroll);
   }
 

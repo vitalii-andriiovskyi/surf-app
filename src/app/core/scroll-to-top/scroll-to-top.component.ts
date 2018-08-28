@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { ScrollPageService } from '../services/scroll-page.service';
 import { PassScrollingDataService } from '../pass-scrolling-data.service';
 import { Subscription } from 'rxjs';
@@ -13,7 +13,8 @@ export class ScrollToTopComponent implements OnInit, OnDestroy {
   isHidden = true;
   scrollSubscription: Subscription;
 
-  constructor(private scrollPageService: ScrollPageService,
+  constructor(private zone: NgZone,
+              private scrollPageService: ScrollPageService,
               private passScrollDataService: PassScrollingDataService) { }
 
   ngOnInit() {
@@ -31,7 +32,7 @@ export class ScrollToTopComponent implements OnInit, OnDestroy {
   }
 
   showButton(event) {
-    this.isHidden = event.target.scrollTop <= event.target.clientHeight * 1.5;
+    this.zone.run(() => this.isHidden = event.target.scrollTop <= event.target.clientHeight * 0.5);
   }
 
 }

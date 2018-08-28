@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core';
-import { defer, animationFrameScheduler, interval } from 'rxjs';
+import { defer, animationFrameScheduler, interval, Subject } from 'rxjs';
 import { map, takeWhile } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScrollPageService {
+  private _initScrollTo$ = new Subject<number>();
 
   constructor() { }
+
+  getNewScrollTop() {
+    return this._initScrollTo$.asObservable();
+  }
+
+  passNewScrollTop(newScroll: number) {
+    this._initScrollTo$.next(newScroll);
+  }
 
   msElapsed(sceduler = animationFrameScheduler) {
     return defer(() => {

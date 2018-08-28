@@ -2,7 +2,8 @@ import { Directive, ElementRef, OnInit, NgZone } from '@angular/core';
 import { tap, filter, switchMap } from 'rxjs/operators';
 import { Router, NavigationEnd } from '@angular/router';
 import { ScrollPageService } from '../services/scroll-page.service';
-import { of } from 'rxjs';
+import { of, Subscription } from 'rxjs';
+import { ScrollModel } from '../models/scroll.model';
 
 @Directive({
   selector: '[surfScroll]'
@@ -11,6 +12,8 @@ export class ScrollDirective implements OnInit {
 
   startScrollTop: number;
   defaultDuration = 1000;
+  scrollData: ScrollModel;
+  scrollSubscription: Subscription;
 
   constructor(private el: ElementRef,
               private zone: NgZone,
@@ -36,6 +39,10 @@ export class ScrollDirective implements OnInit {
       );
 
     });
+
+    this.scrollSubscription = this.getNewScrollTop().subscribe(
+      data => this.scrollData = data
+    );
   }
 
   scrollPage(newScroll: number, currentScroll: number, func: any, duration: number = this.defaultDuration) {
@@ -44,6 +51,10 @@ export class ScrollDirective implements OnInit {
 
   setScrollTop = (frame) => {
     this.el.nativeElement.scrollTop = frame;
+  }
+
+  getNewScrollTop() {
+    return this.scrollPageService.getNewScrollTop();
   }
 
 }

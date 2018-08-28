@@ -17,6 +17,7 @@ export class ScrollDirective implements OnInit {
               private scrollPageService: ScrollPageService) { }
 
   ngOnInit() {
+    // runOutsideAngular don't work with animationFrameScheduler
     this.zone.runOutsideAngular(() => {
 
       this.router.events.pipe(
@@ -36,8 +37,8 @@ export class ScrollDirective implements OnInit {
     });
   }
 
-  scrollPage(newScroll: number, currentScroll: number, func: any) {
-    this.scrollPageService.scrollPage(newScroll, currentScroll, func);
+  scrollPage(newScroll: number, currentScroll: number, func: any, duration: number = 1000) {
+    this.scrollPageService.scrollPage(newScroll, currentScroll, func, duration);
   }
 
   setScrollTop = (frame) => {

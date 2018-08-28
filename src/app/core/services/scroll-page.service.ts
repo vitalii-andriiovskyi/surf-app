@@ -32,8 +32,8 @@ export class ScrollPageService {
     return (t: number) => t * d + currentScroll;
   }
 
-  scrollPage(newScroll: number, currentScroll: number, func: any) {
-    this.duration(1000).pipe(
+  scrollPage(newScroll: number, currentScroll: number, func: any, duration: number) {
+    this.duration(duration).pipe(
       map(this.distance(newScroll, currentScroll))
     ).subscribe(
       func

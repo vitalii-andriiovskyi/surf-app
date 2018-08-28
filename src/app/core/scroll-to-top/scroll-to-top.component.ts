@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ScrollPageService } from '../services/scroll-page.service';
+import { PassScrollingDataService } from '../pass-scrolling-data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'surf-scroll-to-top',
@@ -9,14 +11,23 @@ import { ScrollPageService } from '../services/scroll-page.service';
 export class ScrollToTopComponent implements OnInit {
 
   isHidden = true;
+  scrollSubscription: Subscription;
 
-  constructor(private scrollPageService: ScrollPageService) { }
+  constructor(private scrollPageService: ScrollPageService,
+              private passScrollDataService: PassScrollingDataService) { }
 
   ngOnInit() {
+    this.scrollSubscription = this.passScrollDataService.passerData.subscribe(
+      (event) => this.showButton(event)
+    );
   }
 
   scrollToTop() {
     this.scrollPageService.passNewScrollTop({newScrollTop: 0});
+  }
+
+  showButton(event) {
+    this.isHidden = event.target.scrollTop <= event.target.clientHeight * 1.5;
   }
 
 }

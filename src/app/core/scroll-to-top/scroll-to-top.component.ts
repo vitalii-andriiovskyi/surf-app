@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScrollPageService } from '../services/scroll-page.service';
 
 @Component({
   selector: 'surf-scroll-to-top',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScrollToTopComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private scrollPageService: ScrollPageService) { }
 
   ngOnInit() {
+  }
+
+  scrollToTop() {
+    this.scrollPageService.passNewScrollTop({newScrollTop: 0});
   }
 
 }

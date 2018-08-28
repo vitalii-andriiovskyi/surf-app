@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ScrollPageService } from '../services/scroll-page.service';
 import { PassScrollingDataService } from '../pass-scrolling-data.service';
 import { Subscription } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './scroll-to-top.component.html',
   styleUrls: ['./scroll-to-top.component.sass']
 })
-export class ScrollToTopComponent implements OnInit {
+export class ScrollToTopComponent implements OnInit, OnDestroy {
 
   isHidden = true;
   scrollSubscription: Subscription;
@@ -20,6 +20,10 @@ export class ScrollToTopComponent implements OnInit {
     this.scrollSubscription = this.passScrollDataService.passerData.subscribe(
       (event) => this.showButton(event)
     );
+  }
+
+  ngOnDestroy() {
+    this.scrollSubscription.unsubscribe();
   }
 
   scrollToTop() {

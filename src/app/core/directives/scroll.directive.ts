@@ -10,6 +10,7 @@ import { of } from 'rxjs';
 export class ScrollDirective implements OnInit {
 
   startScrollTop: number;
+  defaultDuration = 1000;
 
   constructor(private el: ElementRef,
               private zone: NgZone,
@@ -37,7 +38,7 @@ export class ScrollDirective implements OnInit {
     });
   }
 
-  scrollPage(newScroll: number, currentScroll: number, func: any, duration: number = 1000) {
+  scrollPage(newScroll: number, currentScroll: number, func: any, duration: number = this.defaultDuration) {
     this.scrollPageService.scrollPage(newScroll, currentScroll, func, duration);
   }
 

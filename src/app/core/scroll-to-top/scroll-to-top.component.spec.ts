@@ -14,6 +14,8 @@ describe('ScrollToTopComponent', () => {
   let elScrollToTop: HTMLElement;
   let deElWrapper: DebugElement;
   let elWrapper: HTMLElement;
+  let scrollPageService: ScrollPageService;
+  let newScrollTop: number;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -29,8 +31,11 @@ describe('ScrollToTopComponent', () => {
     fixture.detectChanges();
     deScrollToTop = fixture.debugElement.query(By.css('.to-top'));
     elScrollToTop = deScrollToTop.nativeElement;
-    deElWrapper = fixture.debugElement.query(By.css('.wrapper'));
+    deElWrapper = fixture.debugElement.query(By.css('.main-surf-wrapper'));
     elWrapper = deElWrapper.nativeElement;
+
+    scrollPageService = fixture.debugElement.injector.get(ScrollPageService);
+    scrollPageService.getNewScrollTop().subscribe((scrollObj) => newScrollTop = scrollObj.newScrollTop);
   });
 
   it(`should switch css-class '.d-none' whilst scrolling the page`, fakeAsync(() => {
@@ -58,18 +63,31 @@ describe('ScrollToTopComponent', () => {
     expect(elScrollToTop.classList.contains('d-none')).toBeTruthy('has class .d-none');
   }));
 
+  it(`should init scrolling of the page (more exactly element with .main-surf-wrapper) to top`, fakeAsync(() => {
+    elWrapper.scrollTop = 1000;
+    deElWrapper.triggerEventHandler('scroll', {target: elWrapper});
+    tick();
+    fixture.detectChanges();
+    expect(elScrollToTop.classList.contains('d-none')).toBeFalsy('hasn\'t class .d-none');
+
+    deScrollToTop.triggerEventHandler('click', null);
+    tick();
+
+    expect(newScrollTop).toBe(0, '0');
+  }));
+
 });
 
 @Component({
   template: `
-    <div class="wrapper" surfCatchScrollOuterzone>
+    <div class="main-surf-wrapper" surfCatchScrollOuterzone>
       <div class="wrapper-inner">
       </div>
       <surf-scroll-to-top></surf-scroll-to-top>
     </div>
   `,
   styles: [`
-    .wrapper {
+    .main-surf-wrapper {
       overflow-y: scroll;
       position: absolute;
       height: 500px;

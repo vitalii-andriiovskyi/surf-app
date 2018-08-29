@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
-import { ScrollPageService } from '../services/scroll-page.service';
 import { PassScrollingDataService } from '../pass-scrolling-data.service';
 import { Subscription } from 'rxjs';
 

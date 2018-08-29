@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { defer, animationFrameScheduler, interval } from 'rxjs';
-import { map, takeWhile } from 'rxjs/operators';
+import { map, takeWhile, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,17 +26,21 @@ export class AnimationFrameService {
     );
   }
 
-  distance(newScroll: number, currentScroll: number): (t: number) => number {
-    if (newScroll < 0 ) { newScroll = 0; }
-    const d = newScroll - currentScroll;
-    return (t: number) => t * d + currentScroll;
+  distance(newValue: number, currentValue: number): (t: number) => number {
+    if (newValue < 0 ) { newValue = 0; }
+    const d = newValue - currentValue;
+    return (t: number) => t * d + currentValue;
   }
 
-  animate(newScroll: number, currentScroll: number, func: any, duration: number) {
+  animate(newValue: number, currentValue: number, func: any, duration: number, easeFunc = this.linear) {
     this.duration(duration).pipe(
-      map(this.distance(newScroll, currentScroll))
-    ).subscribe(
-      func
-    );
+      map(easeFunc),
+      map(this.distance(newValue, currentValue)),
+      tap(func)
+    ).subscribe();
+  }
+
+  linear(timeFraction: number): number {
+    return timeFraction;
   }
 }

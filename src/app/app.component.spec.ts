@@ -10,6 +10,9 @@ import { MenuService } from './core/menu.service';
 import { ResizeService } from './core/resize.service';
 import { WINDOW } from './core/window-ref.service';
 import { WINDOW_PROVIDERS, browserWindowProvider, windowProvider } from './core/window-ref.service';
+import { ScrollToTopComponent } from './core/scroll-to-top/scroll-to-top.component';
+import { PassScrollingDataService } from './core/pass-scrolling-data.service';
+import { ScrollPageService } from './core/services/scroll-page.service';
 
 
 describe('AppComponent', () => {
@@ -21,9 +24,12 @@ describe('AppComponent', () => {
         SurfFooterModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        ScrollToTopComponent
       ],
       providers: [
+        PassScrollingDataService,
+        ScrollPageService,
         { provide: MenuService, useClass: MenuStubService },
         { provide: ResizeService, useClass: ResizeService},
         WINDOW_PROVIDERS

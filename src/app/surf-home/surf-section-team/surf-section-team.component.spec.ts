@@ -14,6 +14,7 @@ import { TeamData  } from './team-data';
 import { SurfCarousel2Component, CarouselSlideDirective } from '../../core/surf-carousel-2/surf-carousel-2.component';
 import { ActivatedRoute, ActivatedRouteStub, Router, RouterStub, RouterLinkStubDirective } from '../../../testing/router-stubs';
 import { teamData } from '../../core/services/ajax-api.mock-data';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 let activatedRoute: ActivatedRouteStub;
 
@@ -35,9 +36,9 @@ describe('SurfSectionTeamComponent', () => {
     // getTeamDataSpy = teamService.getTeamData.and.returnValue( of(teamDatas) );
 
     TestBed.configureTestingModule({
+      imports: [ CarouselModule ],
       declarations: [
         SurfSectionTeamComponent,
-        SurfCarousel2Component,
         CarouselSlideDirective,
         RouterLinkStubDirective,
         TestComponent
@@ -68,7 +69,7 @@ describe('SurfSectionTeamComponent', () => {
     fixture.detectChanges();
 
     // getTeamDataSpy.calls.mostRecent().returnValue.subscribe(() => {
-      deSlide = fixture.debugElement.query(By.css('.surf-carousel-2-slide-wrapper.active'));
+      deSlide = fixture.debugElement.query(By.css('.owl-item.active'));
 
       nameEl = deSlide.query(By.css('h5'));
       accountNameEl = deSlide.query(By.css('h5 + p'));

@@ -26,10 +26,9 @@ export class RouterOutletStubComponent { }
 @Injectable()
 export class RouterStub {
   public readonly events: Observable<Event> = new Subject<Event>();
-  navigate(commands: any[], extras?: NavigationExtras) { }
-
-  triggerEvent(e: Event): void { (this.events as Subject<Event>).next(e); }
-
+  navigate(commands: any[], extras?: NavigationExtras) {
+    (this.events as Subject<any>).next(new NavigationEnd(100, 'path', 'path'));
+  }
 }
 import { convertToParamMap, ParamMap, Data } from '@angular/router';
 

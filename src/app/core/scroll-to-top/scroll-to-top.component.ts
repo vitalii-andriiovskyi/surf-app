@@ -14,7 +14,6 @@ export class ScrollToTopComponent implements OnInit, OnDestroy {
   scrollSubscription: Subscription;
 
   constructor(private zone: NgZone,
-              private scrollPageService: ScrollPageService,
               private passScrollDataService: PassScrollingDataService) { }
 
   ngOnInit() {
@@ -28,7 +27,7 @@ export class ScrollToTopComponent implements OnInit, OnDestroy {
   }
 
   scrollToTop() {
-    this.scrollPageService.passNewScrollTop({newScrollTop: 0});
+    this.passScrollDataService.passNewScrollTop({newScrollTop: 0});
   }
 
   showButton(event) {

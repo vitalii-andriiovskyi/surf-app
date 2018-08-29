@@ -2,8 +2,8 @@
 export { ActivatedRoute, Router, RouterLink, RouterOutlet} from '@angular/router';
 
 import { Component, Directive, Injectable, Input, HostListener } from '@angular/core';
-import { NavigationExtras } from '@angular/router';
-import { of , Observable,  BehaviorSubject ,  ReplaySubject } from 'rxjs';
+import { NavigationExtras, NavigationEnd } from '@angular/router';
+import { of , Observable,  BehaviorSubject ,  ReplaySubject, Subject } from 'rxjs';
 
 @Directive({
   selector: '[routerLink]',
@@ -25,7 +25,11 @@ export class RouterOutletStubComponent { }
 
 @Injectable()
 export class RouterStub {
+  public readonly events: Observable<Event> = new Subject<Event>();
   navigate(commands: any[], extras?: NavigationExtras) { }
+
+  triggerEvent(e: Event): void { (this.events as Subject<Event>).next(e); }
+
 }
 import { convertToParamMap, ParamMap, Data } from '@angular/router';
 

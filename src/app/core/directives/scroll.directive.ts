@@ -1,9 +1,10 @@
 import { Directive, ElementRef, OnInit, NgZone, OnDestroy } from '@angular/core';
 import { tap, filter, switchMap } from 'rxjs/operators';
 import { Router, NavigationEnd } from '@angular/router';
-import { ScrollPageService } from '../services/scroll-page.service';
+import { AnimationFrameService } from '../services/animation-frame.service';
 import { of, Subscription } from 'rxjs';
 import { ScrollModel } from '../models/scroll.model';
+import { PassScrollingDataService } from '../pass-scrolling-data.service';
 
 @Directive({
   selector: '[surfScroll]'
@@ -18,7 +19,8 @@ export class ScrollDirective implements OnInit, OnDestroy {
   constructor(private el: ElementRef,
               private zone: NgZone,
               private router: Router,
-              private scrollPageService: ScrollPageService) { }
+              private animationFrameService: AnimationFrameService,
+              private passScrollDataService: PassScrollingDataService) { }
 
   ngOnInit() {
     // runOutsideAngular don't work with animationFrameScheduler
@@ -53,7 +55,7 @@ export class ScrollDirective implements OnInit, OnDestroy {
   }
 
   scrollPage(newScroll: number, currentScroll: number, func: any, duration: number = this.defaultDuration) {
-    this.scrollPageService.scrollPage(newScroll, currentScroll, func, duration);
+    this.animationFrameService.animate(newScroll, currentScroll, func, duration);
   }
 
   setScrollTop = (frame) => {
@@ -61,7 +63,7 @@ export class ScrollDirective implements OnInit, OnDestroy {
   }
 
   getNewScrollTop() {
-    return this.scrollPageService.getNewScrollTop();
+    return this.passScrollDataService.getNewScrollTop();
   }
 
 }

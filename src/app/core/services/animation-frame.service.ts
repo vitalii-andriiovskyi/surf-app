@@ -5,7 +5,7 @@ import { map, takeWhile } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ScrollPageService {
+export class AnimationFrameService {
 
   constructor() { }
 
@@ -32,7 +32,7 @@ export class ScrollPageService {
     return (t: number) => t * d + currentScroll;
   }
 
-  scrollPage(newScroll: number, currentScroll: number, func: any, duration: number) {
+  animate(newScroll: number, currentScroll: number, func: any, duration: number) {
     this.duration(duration).pipe(
       map(this.distance(newScroll, currentScroll))
     ).subscribe(

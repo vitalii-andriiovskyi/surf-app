@@ -1,18 +1,28 @@
 import { Injectable, Renderer2 } from '@angular/core';
 import { Subject } from 'rxjs';
+import { ScrollModel } from './models/scroll.model';
 
 
 @Injectable()
 export class PassScrollingDataService {
 
-  private _passerData = new Subject<any>();
+  private _passerData$ = new Subject<any>();
+  private _initScrollTo$ = new Subject<ScrollModel>();
 
-  passerData = this._passerData.asObservable();
+  passerData = this._passerData$.asObservable();
 
   constructor() { }
 
   passData(data: any) {
-    this._passerData.next(data);
+    this._passerData$.next(data);
+  }
+
+  getNewScrollTop() {
+    return this._initScrollTo$.asObservable();
+  }
+
+  passNewScrollTop(newScroll: ScrollModel) {
+    this._initScrollTo$.next(newScroll);
   }
 
   // get coords of element relating to any parent html DOM-element, but it don't take in to account html and body

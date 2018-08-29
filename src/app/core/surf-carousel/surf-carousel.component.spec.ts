@@ -101,13 +101,14 @@ describe('SurfCarouselComponent', () => {
     done();
   });
 
-  it('should show second slide after clicking on right arrow-button', (done: any) => {
+  it('should show second slide after clicking on right arrow-button', fakeAsync(() => {
     // carouselComponent.nextSlide();
     deNavButtons[1].triggerEventHandler('click', null);
+    tick(2);
     fixture.detectChanges();
 
     // setTimeout is needed because function which changes slides has setTimeout and testing must wait some time (time could be different)
-    setTimeout(() => {
+    // setTimeout(() => {
 
       expect(carouselComponent.nextSlideId).toBe('slide2', 'id of next slide should be slide2');
       expect(carouselComponent.prevSlideId).toBe('slide0', 'id of prev slide should be slide0');
@@ -117,72 +118,60 @@ describe('SurfCarouselComponent', () => {
 
       deSlide = fixture.debugElement.query(By.css('.slide-content'));
       expect(deSlide.nativeElement.textContent).toBe('Slide 2', 'text in second slide');
-    }, 2);
+    // }, 2);
+    tick(2);
 
-    done();
-  });
+  }));
 
-  it('should show first slide after clicking on right arrow-button and then left arrow-button', (done: any) => {
+  it('should show first slide after clicking on right arrow-button and then left arrow-button', fakeAsync(() => {
 
     // carouselComponent.nextSlide();
     deNavButtons[1].triggerEventHandler('click', null);
+    tick(2);
+    fixture.detectChanges();
+    deNavButtons[0].triggerEventHandler('click', null);
+    tick(2);
+
     fixture.detectChanges();
 
-    // setTimeout is needed because function which changes slides has setTimeout and testing must wait some time (time could be different)
-    setTimeout(() => {
-      deNavButtons[0].triggerEventHandler('click', null);
-      fixture.detectChanges();
-    }, 1);
+    expect(carouselComponent.carouselSliderState).toBe('leftActive', 'animation state');
 
-    // setTimeout is needed because function which changes slides has setTimeout and testing must wait some time (time could be different)
-    setTimeout(() => {
-      expect(carouselComponent.carouselSliderState).toBe('leftActive', 'animation state');
+    expect(carouselComponent.nextSlideId).toBe('slide1', 'id of next slide should be slide1');
+    expect(carouselComponent.prevSlideId).toBe('slide0', 'id of prev slide should be slide0');
+    fixture.detectChanges();
 
-      expect(carouselComponent.nextSlideId).toBe('slide1', 'id of next slide should be slide1');
-      expect(carouselComponent.prevSlideId).toBe('slide0', 'id of prev slide should be slide0');
-      fixture.detectChanges();
+    expect(carouselComponent.currentSlideId).toBe('slide0', 'id of current slide should be slide0');
+    deSlide = fixture.debugElement.query(By.css('.slide-content'));
+    expect(deSlide.nativeElement.textContent).toBe('Slide 1', 'text in first slide');
+    tick(2);
 
-      expect(carouselComponent.currentSlideId).toBe('slide0', 'id of current slide should be slide0');
-      deSlide = fixture.debugElement.query(By.css('.slide-content'));
-      expect(deSlide.nativeElement.textContent).toBe('Slide 1', 'text in first slide');
+  }));
 
-    }, 7);
+  it('should show third slide after clicking on right arrow-button and again right arrow-button', fakeAsync(() => {
 
-    done();
-  });
+    // carouselComponent.nextSlide();
+    deNavButtons[1].triggerEventHandler('click', null);
+    tick(2);
+    deNavButtons[1].triggerEventHandler('click', null);
+    tick(2);
+    fixture.detectChanges();
 
-  // it('should show third slide after clicking on right arrow-button and again right arrow-button', (done: any) => {
+    deNavButtons[1].triggerEventHandler('click', null);
+    tick(2);
+    fixture.detectChanges();
 
-  //   // carouselComponent.nextSlide();
-  //   deNavButtons[1].triggerEventHandler('click', null);
-  //   deNavButtons[1].triggerEventHandler('click', null);
+    expect(carouselComponent.carouselSliderState).toBe('rightActive', 'animation state');
 
-  //   fixture.detectChanges();
+    // expect(carouselComponent.nextSlideId).toBe('slide2', 'id of next slide should be slide2');
+    expect(carouselComponent.prevSlideId).toBe('slide1', 'id of prev slide should be slide1');
+    fixture.detectChanges();
 
-  //   // setTimeout is needed because function which changes slides has setTimeout and testing must
-  //  wait some time (time could be different)
-  //   // setTimeout(() => {
-  //   //   deNavButtons[1].triggerEventHandler('click', null);
-  //   //   fixture.detectChanges();
-  //   // }, 2);
+    expect(carouselComponent.currentSlideId).toBe('slide2', 'id of current slide should be slide2');
+    deSlide = fixture.debugElement.query(By.css('.slide-content'));
+    expect(deSlide.nativeElement.textContent).toBe('Slide 3', 'text in first slide');
 
-  //   // setTimeout is needed because function which changes slides has setTimeout and testing
-  // must wait some time (time could be different)
-  //   setTimeout(() => {
-  //     expect(carouselComponent.carouselSliderState).toBe('rightActive', 'animation state');
-
-  //     expect(carouselComponent.nextSlideId).toBe('slide2', 'id of next slide should be slide2');
-  //     expect(carouselComponent.prevSlideId).toBe('slide1', 'id of prev slide should be slide1');
-  //     fixture.detectChanges();
-
-  //     expect(carouselComponent.currentSlideId).toBe('slide2', 'id of current slide should be slide2');
-  //     deSlide = fixture.debugElement.query(By.css('.slide-content'));
-  //     expect(deSlide.nativeElement.textContent).toBe('Slide 3', 'text in first slide');
-
-  //   }, 5);
-
-  //   done();
-  // });
+    tick(2);
+  }));
 
   afterEach(function() {
       jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;

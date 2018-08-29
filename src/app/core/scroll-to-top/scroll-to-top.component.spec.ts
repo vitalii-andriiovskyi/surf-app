@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core
 
 import { ScrollToTopComponent } from './scroll-to-top.component';
 import { PassScrollingDataService } from '../pass-scrolling-data.service';
-import { ScrollPageService } from '../services/scroll-page.service';
 import { Component, DebugElement } from '@angular/core';
 import { CatchScrollOuterzoneDirective } from '../catch-scroll-outerzone.directive';
 import { By } from '@angular/platform-browser';
@@ -14,13 +13,13 @@ describe('ScrollToTopComponent', () => {
   let elScrollToTop: HTMLElement;
   let deElWrapper: DebugElement;
   let elWrapper: HTMLElement;
-  let scrollPageService: ScrollPageService;
+  let passScrollDataService: PassScrollingDataService;
   let newScrollTop: number;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TestComponent, ScrollToTopComponent, CatchScrollOuterzoneDirective ],
-      providers: [ PassScrollingDataService, ScrollPageService ]
+      providers: [ PassScrollingDataService ]
     })
     .compileComponents();
   }));
@@ -34,8 +33,8 @@ describe('ScrollToTopComponent', () => {
     deElWrapper = fixture.debugElement.query(By.css('.main-surf-wrapper'));
     elWrapper = deElWrapper.nativeElement;
 
-    scrollPageService = fixture.debugElement.injector.get(ScrollPageService);
-    scrollPageService.getNewScrollTop().subscribe((scrollObj) => newScrollTop = scrollObj.newScrollTop);
+    passScrollDataService = fixture.debugElement.injector.get(PassScrollingDataService);
+    passScrollDataService.getNewScrollTop().subscribe((scrollObj) => newScrollTop = scrollObj.newScrollTop);
   });
 
   it(`should switch css-class '.d-none' whilst scrolling the page`, fakeAsync(() => {

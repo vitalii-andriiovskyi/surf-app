@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 
-import { CatchScrollOuterzoneDirective } from '../catch-scroll-outerzone.directive';
+import { CatchScrollOuterzoneDirective } from '../directives/catch-scroll-outerzone.directive';
 import { MakeNavStickyDirective } from './make-nav-sticky.directive';
 import { NavPositionState } from './surf-carousel.component';
 

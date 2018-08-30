@@ -1,5 +1,5 @@
 import { ScrollDirective } from './scroll.directive';
-import { CatchScrollOuterzoneDirective } from '../catch-scroll-outerzone.directive';
+import { CatchScrollOuterzoneDirective } from './catch-scroll-outerzone.directive';
 import { PassScrollingDataService } from '../pass-scrolling-data.service';
 import { ComponentFixture, async, TestBed, tick, fakeAsync } from '@angular/core/testing';
 import { DebugElement, Component } from '@angular/core';

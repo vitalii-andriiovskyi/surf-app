@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 
 import { SurfCarouselComponent, CarouselSlideDirective } from './surf-carousel.component';
 
-import { CatchScrollOuterzoneDirective } from '../catch-scroll-outerzone.directive';
+import { CatchScrollOuterzoneDirective } from '../directives/catch-scroll-outerzone.directive';
 import { MakeNavStickyDirective } from './make-nav-sticky.directive';
 import { CurrentHeightDirective } from './currentHeight.directive';
 

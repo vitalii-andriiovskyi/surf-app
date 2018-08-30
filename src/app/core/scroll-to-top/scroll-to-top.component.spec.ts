@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core
 import { ScrollToTopComponent } from './scroll-to-top.component';
 import { PassScrollingDataService } from '../pass-scrolling-data.service';
 import { Component, DebugElement } from '@angular/core';
-import { CatchScrollOuterzoneDirective } from '../catch-scroll-outerzone.directive';
+import { CatchScrollOuterzoneDirective } from '../directives/catch-scroll-outerzone.directive';
 import { By } from '@angular/platform-browser';
 
 describe('ScrollToTopComponent', () => {

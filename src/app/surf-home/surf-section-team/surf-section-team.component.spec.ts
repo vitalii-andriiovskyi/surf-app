@@ -11,7 +11,6 @@ import { WINDOW, WINDOW_PROVIDERS } from '../../core/window-ref.service';
 
 import { TeamData  } from './team-data';
 
-import { SurfCarousel2Component, CarouselSlideDirective } from '../../core/surf-carousel-2/surf-carousel-2.component';
 import { ActivatedRoute, ActivatedRouteStub, Router, RouterStub, RouterLinkStubDirective } from '../../../testing/router-stubs';
 import { teamData } from '../../core/services/ajax-api.mock-data';
 import { CarouselModule } from 'ngx-owl-carousel-o';
@@ -39,7 +38,6 @@ describe('SurfSectionTeamComponent', () => {
       imports: [ CarouselModule ],
       declarations: [
         SurfSectionTeamComponent,
-        CarouselSlideDirective,
         RouterLinkStubDirective,
         TestComponent
       ],

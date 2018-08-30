@@ -6,7 +6,6 @@ import { SurfHomeRoutingModule } from './surf-home-routing.module';
 import { SurfHomeComponent } from './surf-home.component';
 import { SurfSectionBoardsComponent } from './surf-section-boards/surf-section-boards.component';
 import { SurfCarouselModule } from '../core/surf-carousel/surf-carousel.module';
-import { SurfCarousel2Module } from '../core/surf-carousel-2/surf-carousel-2.module';
 import { NgbTabsetGridedComponent } from './surf-section-boards/ngb-tabset-grided.component';
 import { NgbTabsetExpandedComponent } from './surf-section-boards/ngb-tabset-expanded.component';
 
@@ -22,7 +21,6 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
   imports: [
     SharedModule,
     SurfCarouselModule,
-    SurfCarousel2Module,
     YoutubePlayerModule,
     SurfHomeRoutingModule,
     CarouselModule

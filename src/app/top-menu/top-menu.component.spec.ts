@@ -9,7 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // import { TopMenuModule } from './top-menu.module';
 import { TopMenuComponent } from './top-menu.component';
-import { MenuService } from '../core/menu.service';
+import { MenuService } from '../core/services/menu.service';
 import { MenuStubService } from '../../testing/menu-stub.service';
 import { ActivatedRoute, ActivatedRouteStub, Router, RouterStub, RouterLinkStubDirective } from '../../testing/router-stubs';
 import { MenuItem } from '../core/menu-item';

@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule,
   Optional, SkipSelf } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import { MenuService } from './menu.service';
+import { MenuService } from './services/menu.service';
 
 import { PageNotFoundComponent } from './page-not-found.component';
 import { SurfCarouselModule } from './surf-carousel/surf-carousel.module';

@@ -6,7 +6,7 @@ import { SurfFooterModule } from './surf-footer/surf-footer.module';
 
 
 import { MenuStubService } from '../testing/menu-stub.service';
-import { MenuService } from './core/menu.service';
+import { MenuService } from './core/services/menu.service';
 import { ResizeService } from './core/resize.service';
 import { WINDOW } from './core/window-ref.service';
 import { WINDOW_PROVIDERS, browserWindowProvider, windowProvider } from './core/window-ref.service';

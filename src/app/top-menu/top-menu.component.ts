@@ -9,7 +9,7 @@ import {
 
 import { Observable ,  Subscription } from 'rxjs';
 
-import { MenuService } from '../core/menu.service';
+import { MenuService } from '../core/services/menu.service';
 import { ResizeService } from '../core/resize.service';
 import { WINDOW } from '../core/window-ref.service';
 

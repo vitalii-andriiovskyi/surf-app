@@ -18,12 +18,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { RouterLinkStubDirective, RouterOutletStubComponent } from '../testing';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    RouterLinkStubDirective,
+    RouterOutletStubComponent
   ],
   imports: [
     CoreModule.forRoot(),

@@ -15,7 +15,7 @@ import { WINDOW, WINDOW_PROVIDERS } from '../../core/window-ref.service';
 
 import { CurrentHeightDirective } from '../../shared/currentHeight.directive';
 import { MakeNavStickyDirective } from '../../core/surf-carousel/make-nav-sticky.directive';
-import { PassScrollingDataService } from '../../core/pass-scrolling-data.service';
+import { PassScrollingDataService } from '../../core/services/pass-scrolling-data.service';
 
 import { BoardData, Dimention, BoardImage, TabsetDescription, TabsetImages, ActivatedTab, Tabset } from '../board-data';
 import { BoardService } from '../board.service';

@@ -1,6 +1,6 @@
 import { Directive, NgZone, ElementRef, Renderer2 } from '@angular/core';
 
-import { PassScrollingDataService } from '../pass-scrolling-data.service';
+import { PassScrollingDataService } from '../services/pass-scrolling-data.service';
 
 // this directive attaches scroll event to .main-surf-wrapper (I set height of <html> and <body> as 100%
 // and made wrapper be scrollable ) outside AngularZone and pass data (object UIEvent) using Observable

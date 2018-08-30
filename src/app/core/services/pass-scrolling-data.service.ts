@@ -1,6 +1,6 @@
 import { Injectable, Renderer2 } from '@angular/core';
 import { Subject } from 'rxjs';
-import { ScrollModel } from './models/scroll.model';
+import { ScrollModel } from '../models/scroll.model';
 
 
 @Injectable()

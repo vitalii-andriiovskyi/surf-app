@@ -9,7 +9,7 @@ import { CatchScrollOuterzoneDirective } from '../directives/catch-scroll-outerz
 import { MakeNavStickyDirective } from './make-nav-sticky.directive';
 import { CurrentHeightDirective } from './currentHeight.directive';
 
-import { PassScrollingDataService } from '../pass-scrolling-data.service';
+import { PassScrollingDataService } from '../services/pass-scrolling-data.service';
 import { ResizeService } from '../resize.service';
 import { WINDOW_PROVIDERS } from '../window-ref.service';
 

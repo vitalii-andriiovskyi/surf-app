@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 
 import { ScrollToTopComponent } from './scroll-to-top.component';
-import { PassScrollingDataService } from '../pass-scrolling-data.service';
+import { PassScrollingDataService } from '../services/pass-scrolling-data.service';
 import { Component, DebugElement } from '@angular/core';
 import { CatchScrollOuterzoneDirective } from '../directives/catch-scroll-outerzone.directive';
 import { By } from '@angular/platform-browser';

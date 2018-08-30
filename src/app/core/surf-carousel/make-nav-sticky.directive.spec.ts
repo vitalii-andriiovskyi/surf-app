@@ -7,7 +7,7 @@ import { CatchScrollOuterzoneDirective } from '../directives/catch-scroll-outerz
 import { MakeNavStickyDirective } from './make-nav-sticky.directive';
 import { NavPositionState } from './surf-carousel.component';
 
-import { PassScrollingDataService } from '../pass-scrolling-data.service';
+import { PassScrollingDataService } from '../services/pass-scrolling-data.service';
 
 @Component({
   template: `

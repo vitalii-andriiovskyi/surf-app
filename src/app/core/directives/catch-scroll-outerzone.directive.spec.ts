@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 
 import { CatchScrollOuterzoneDirective } from './catch-scroll-outerzone.directive';
 
-import { PassScrollingDataService } from '../pass-scrolling-data.service';
+import { PassScrollingDataService } from '../services/pass-scrolling-data.service';
 
 @Component({
   template: `

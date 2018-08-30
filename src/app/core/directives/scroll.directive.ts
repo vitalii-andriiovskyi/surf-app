@@ -4,7 +4,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { AnimationFrameService } from '../services/animation-frame.service';
 import { of, Subscription } from 'rxjs';
 import { ScrollModel } from '../models/scroll.model';
-import { PassScrollingDataService } from '../pass-scrolling-data.service';
+import { PassScrollingDataService } from '../services/pass-scrolling-data.service';
 
 @Directive({
   selector: '[surfScroll]'

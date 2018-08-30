@@ -11,7 +11,7 @@ import { ResizeService } from './core/resize.service';
 import { WINDOW } from './core/window-ref.service';
 import { WINDOW_PROVIDERS, browserWindowProvider, windowProvider } from './core/window-ref.service';
 import { ScrollToTopComponent } from './core/scroll-to-top/scroll-to-top.component';
-import { PassScrollingDataService } from './core/pass-scrolling-data.service';
+import { PassScrollingDataService } from './core/services/pass-scrolling-data.service';
 import { AnimationFrameService } from './core/services/animation-frame.service';
 
 

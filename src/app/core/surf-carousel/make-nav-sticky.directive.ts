@@ -7,7 +7,7 @@ import { Directive,
          Input,
          Output,
          EventEmitter } from '@angular/core';
-import { PassScrollingDataService } from '../pass-scrolling-data.service';
+import { PassScrollingDataService } from '../services/pass-scrolling-data.service';
 import { Subscription } from 'rxjs';
 
 import { NavPositionState } from './surf-carousel.component';

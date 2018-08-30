@@ -14,7 +14,7 @@ import { ResizeService } from '../core/services/resize.service';
 import { WINDOW } from '../core/services/window-ref.service';
 
 
-import { MenuItem } from '../core/menu-item';
+import { MenuItem } from '../core/models/menu-item';
 
 @Component({
   selector: 'surf-topmenu',

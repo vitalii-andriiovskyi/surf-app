@@ -3,7 +3,7 @@ import { Injectable, Inject, Optional } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 import { catchError, map, tap } from 'rxjs/operators';
-import { MenuItem } from '../menu-item';
+import { MenuItem } from '../models/menu-item';
 
 @Injectable()
 export class MenuService {

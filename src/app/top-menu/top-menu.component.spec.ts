@@ -12,7 +12,7 @@ import { TopMenuComponent } from './top-menu.component';
 import { MenuService } from '../core/services/menu.service';
 import { MenuStubService } from '../../testing/menu-stub.service';
 import { ActivatedRoute, ActivatedRouteStub, Router, RouterStub, RouterLinkStubDirective } from '../../testing/router-stubs';
-import { MenuItem } from '../core/menu-item';
+import { MenuItem } from '../core/models/menu-item';
 
 import { ResizeService } from '../core/services/resize.service';
 import { WINDOW_PROVIDERS } from '../core/services/window-ref.service';

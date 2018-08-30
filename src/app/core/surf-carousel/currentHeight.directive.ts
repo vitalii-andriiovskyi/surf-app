@@ -1,11 +1,22 @@
-import {Directive, ElementRef, HostListener, Input, Output, HostBinding, EventEmitter, OnChanges, OnInit, Inject, OnDestroy } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostListener,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  OnInit,
+  Inject,
+  OnDestroy
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ResizeService } from '../services/resize.service';
 import { WINDOW } from '../services/window-ref.service';
 
 // this directive is helpfull ib=n case when element has 'position: absolute' and parent has 'position: relative'.
 // Parent has one direct child and thus its height becomes 0. Element followed parent element stay under parent's child
-// It's needed to set height of parent directly. 
+// It's needed to set height of parent directly.
 
 // Such approach and directive is needed for right changing of slides in carousel and beautifull apearance of background
 @Directive({
@@ -40,7 +51,7 @@ export class CurrentHeightDirective implements OnChanges, OnInit, OnDestroy {
   ngOnDestroy() {
     this.resizeSubscription.unsubscribe();
   }
-  
+
 
   getHeight() {
     if (!this.actualElement) { return 0; }

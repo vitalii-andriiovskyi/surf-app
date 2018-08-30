@@ -14,7 +14,7 @@ export class CurrentHeightDirective implements OnChanges, OnInit {
   @Output('surfDefineHeight') passHeight = new EventEmitter();
 
   currentHeight: string;
-  constructor(private el: ElementRef, 
+  constructor(private el: ElementRef,
               private resizeService: ResizeService,
               @Inject(WINDOW) private winRef: Window) { }
 

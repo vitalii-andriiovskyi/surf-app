@@ -21,7 +21,7 @@ describe('SurfSectionBlogComponent', () => {
   let deImgAlt: DebugElement;
   let deDescription: DebugElement;
 
-  let getBlogDataSpy: jasmine.Spy;
+  // let getBlogDataSpy: jasmine.Spy;
 
 
   beforeEach(async(() => {

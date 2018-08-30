@@ -52,7 +52,7 @@
     "express": "~4.16.0",
     "font-awesome": "^4.7.0",
     "http-errors": "~1.6.2",
-    "mongoose": "^5.0.17",
+    "mongoose": "^5.2.10",
     "morgan": "~1.9.0",
     "nconf": "^0.10.0",
     "ngx-facebook": "^2.4.0",
@@ -63,6 +63,7 @@
     "serve-static": "^1.13.2",
     "ts-loader": "^4.3.0",
     "web-animations-js": "^2.3.1",
+    "webpack-node-externals": "^1.7.2",
     "winston": "^2.4.2",
     "zone.js": "^0.8.26"
   },

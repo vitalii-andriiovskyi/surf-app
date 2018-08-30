@@ -14,8 +14,8 @@ import { MenuStubService } from '../../testing/menu-stub.service';
 import { ActivatedRoute, ActivatedRouteStub, Router, RouterStub, RouterLinkStubDirective } from '../../testing/router-stubs';
 import { MenuItem } from '../core/menu-item';
 
-import { ResizeService } from '../core/resize.service';
-import { WINDOW_PROVIDERS } from '../core/window-ref.service';
+import { ResizeService } from '../core/services/resize.service';
+import { WINDOW_PROVIDERS } from '../core/services/window-ref.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 let menuService: MenuStubService;

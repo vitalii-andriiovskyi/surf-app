@@ -3,8 +3,8 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { SurfHomeComponent } from './surf-home.component';
 
-import { ResizeService } from '../core/resize.service';
-import { WINDOW_PROVIDERS } from '../core/window-ref.service';
+import { ResizeService } from '../core/services/resize.service';
+import { WINDOW_PROVIDERS } from '../core/services/window-ref.service';
 import { BoardService } from './board.service';
 import { BoardStubService } from './testing/board-stub.service';
 import { HomeService } from './home.service';

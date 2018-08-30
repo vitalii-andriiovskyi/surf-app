@@ -6,8 +6,8 @@ import { Subscription } from 'rxjs';
 import { of } from 'rxjs';
 
 import { SurfSectionTeamComponent } from './surf-section-team.component';
-import { ResizeService } from '../../core/resize.service';
-import { WINDOW, WINDOW_PROVIDERS } from '../../core/window-ref.service';
+import { ResizeService } from '../../core/services/resize.service';
+import { WINDOW, WINDOW_PROVIDERS } from '../../core/services/window-ref.service';
 
 import { TeamData  } from './team-data';
 

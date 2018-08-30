@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { WINDOW } from '../window-ref.service';
+import { WINDOW } from './window-ref.service';
 import { SwUpdatesService } from '../sw-updates/sw-updates.service';
 
 @Injectable()

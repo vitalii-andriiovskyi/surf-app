@@ -9,7 +9,7 @@ import { LocationService } from './location.service';
 import { SwUpdatesService } from '../sw-updates/sw-updates.service';
 import { Router } from '@angular/router';
 import { RouterStub } from '../../../testing/router-stubs';
-import { WINDOW_PROVIDERS, WINDOW, windowProvider, WindowRef, browserWindowProvider } from '../window-ref.service';
+import { WINDOW_PROVIDERS, WINDOW, windowProvider, WindowRef, browserWindowProvider } from './window-ref.service';
 
 
 // import { GaService } from 'app/shared/ga.service';

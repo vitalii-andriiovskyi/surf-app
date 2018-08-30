@@ -13,7 +13,7 @@ import { AddContentDirective } from '../../shared/add-content.directive';
 
 import { LocationService } from '../../core/services/location.service';
 import { SwUpdatesService } from '../../core/sw-updates/sw-updates.service';
-import { WINDOW_PROVIDERS } from '../../core/window-ref.service';
+import { WINDOW_PROVIDERS } from '../../core/services/window-ref.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DebugElement } from '@angular/core';
 

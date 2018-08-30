@@ -1,7 +1,7 @@
 import {Directive, ElementRef, HostListener, Input, Output, HostBinding, EventEmitter, OnChanges, OnInit, Inject } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ResizeService } from '../core/resize.service';
-import { WINDOW } from '../core/window-ref.service';
+import { ResizeService } from '../core/services/resize.service';
+import { WINDOW } from '../core/services/window-ref.service';
 
 
 @Directive({

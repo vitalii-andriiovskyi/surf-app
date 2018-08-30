@@ -10,8 +10,8 @@ import { MakeNavStickyDirective } from './make-nav-sticky.directive';
 import { CurrentHeightDirective } from './currentHeight.directive';
 
 import { PassScrollingDataService } from '../services/pass-scrolling-data.service';
-import { ResizeService } from '../resize.service';
-import { WINDOW_PROVIDERS } from '../window-ref.service';
+import { ResizeService } from '../services/resize.service';
+import { WINDOW_PROVIDERS } from '../services/window-ref.service';
 
 @Component({
   template: `

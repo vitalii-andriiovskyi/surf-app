@@ -10,8 +10,8 @@ import {
 import { Observable ,  Subscription } from 'rxjs';
 
 import { MenuService } from '../core/services/menu.service';
-import { ResizeService } from '../core/resize.service';
-import { WINDOW } from '../core/window-ref.service';
+import { ResizeService } from '../core/services/resize.service';
+import { WINDOW } from '../core/services/window-ref.service';
 
 
 import { MenuItem } from '../core/menu-item';

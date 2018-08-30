@@ -9,8 +9,8 @@ import { SurfCarouselModule } from './surf-carousel/surf-carousel.module';
 import { CatchScrollOuterzoneDirective } from './directives/catch-scroll-outerzone.directive';
 import { PassScrollingDataService } from './services/pass-scrolling-data.service';
 
-import { ResizeService } from './resize.service';
-import { WINDOW_PROVIDERS, browserWindowProvider, windowProvider } from './window-ref.service';
+import { ResizeService } from './services/resize.service';
+import { WINDOW_PROVIDERS, browserWindowProvider, windowProvider } from './services/window-ref.service';
 import { LocationService } from './services/location.service';
 
 import { Logger } from './services/logger.service';

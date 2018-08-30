@@ -8,7 +8,7 @@ import { LocationService } from '../core/services/location.service';
 import { SwUpdatesService } from '../core/sw-updates/sw-updates.service';
 import { Router } from '@angular/router';
 import { click, RouterStub } from '../../testing';
-import { WINDOW_PROVIDERS } from '../core/window-ref.service';
+import { WINDOW_PROVIDERS } from '../core/services/window-ref.service';
 
 @Component({
   template: `

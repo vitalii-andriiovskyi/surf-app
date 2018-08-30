@@ -4,8 +4,8 @@ import { By } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 
 import { CurrentHeightDirective } from './currentHeight.directive';
-import { ResizeService } from '../resize.service';
-import { WINDOW, WINDOW_PROVIDERS } from '../window-ref.service';
+import { ResizeService } from '../services/resize.service';
+import { WINDOW, WINDOW_PROVIDERS } from '../services/window-ref.service';
 
 
 @Component({

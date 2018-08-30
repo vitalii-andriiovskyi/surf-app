@@ -1,7 +1,7 @@
 import {Directive, ElementRef, HostListener, Input, Output, HostBinding, EventEmitter, OnChanges, OnInit, Inject, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ResizeService } from '../resize.service';
-import { WINDOW } from '../window-ref.service';
+import { ResizeService } from '../services/resize.service';
+import { WINDOW } from '../services/window-ref.service';
 
 // this directive is helpfull ib=n case when element has 'position: absolute' and parent has 'position: relative'.
 // Parent has one direct child and thus its height becomes 0. Element followed parent element stay under parent's child

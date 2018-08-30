@@ -10,8 +10,8 @@ import { Component, OnInit, OnDestroy, AfterViewInit, AfterViewChecked,
 
 import { Observable, Subscription } from 'rxjs';
 
-import { ResizeService } from '../../core/resize.service';
-import { WINDOW, WINDOW_PROVIDERS } from '../../core/window-ref.service';
+import { ResizeService } from '../../core/services/resize.service';
+import { WINDOW, WINDOW_PROVIDERS } from '../../core/services/window-ref.service';
 
 import { CurrentHeightDirective } from '../../shared/currentHeight.directive';
 import { MakeNavStickyDirective } from '../../core/surf-carousel/make-nav-sticky.directive';

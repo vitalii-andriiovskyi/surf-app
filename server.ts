@@ -35,6 +35,7 @@ global['Event'] = {};
 const app = express();
 
 const PORT = config.get('port');
+const HOSTNAME =  process.env.NODE_ENV === 'production' ? config.get('hostname') : 'localhost';
 const DIST_FOLDER = join(process.cwd(), 'dist');
 
 
@@ -128,7 +129,7 @@ app.use(function(err, req, res, next) {
 
 const server = http.createServer(app);
 
-server.listen(PORT, () => {
+server.listen(PORT, HOSTNAME, () => {
   console.log(`Node server listening on http://localhost:${PORT}`);
   logger.info(`Node server listening on http://localhost:${PORT}`);
 });

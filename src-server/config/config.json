@@ -1,5 +1,6 @@
 {
-  "port": 4040,
+	"port": 4040,
+	"hostname": "127.0.0.1",
   "mongoose": {
 		"uri": "mongodb://localhost:27017/surf",
 		"options": { 

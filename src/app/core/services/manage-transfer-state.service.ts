@@ -3,7 +3,7 @@ import {PLATFORM_ID} from '@angular/core';
 import {isPlatformServer} from '@angular/common';
 import {makeStateKey, TransferState} from '@angular/platform-browser';
 import { of, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap, first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,7 @@ export class ManageTransferStateService {
     } else {
       return func()
         .pipe(
+          first(),
           tap(data => {
             if (isPlatformServer(this.platformId)) {
               this.transferState.set(DATA_KEY, data);

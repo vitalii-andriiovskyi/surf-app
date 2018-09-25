@@ -11,21 +11,37 @@ import { take, map } from 'rxjs/operators';
 
 @Injectable()
 export class BlogResolver implements Resolve<PostItem[]> {
-  constructor(private bs: BlogService, private router: Router) {}
+  constructor(private bs: BlogService,
+              private router: Router) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<PostItem[]> {
 
     return this.bs.getPosts()
-              .pipe(
-                take(1),
-                map(posts => {
-                  if (posts) {
-                    return posts;
-                  } else { // id not found
-                    this.router.navigate(['']);
-                    return null;
-                  }
-                })
-              );
+    .pipe(
+      take(1),
+      map(posts => {
+        if (posts) {
+          return posts;
+        } else { // id not found
+          this.router.navigate(['']);
+          return null;
+        }
+      })
+    );
+  }
+
+  getPosts = () => {
+    this.bs.getPosts()
+      .pipe(
+        take(1),
+        map(posts => {
+          if (posts) {
+            return posts;
+          } else { // id not found
+            this.router.navigate(['']);
+            return null;
+          }
+        })
+      );
   }
 }

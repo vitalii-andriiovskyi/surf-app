@@ -60,7 +60,7 @@ export class SurfSectionBoardsComponent implements OnInit, OnDestroy {
     // this._fetchDataSubscription.unsubscribe();
   }
 
-
+  // it should be removed; BoardsData are got by parent component and passed through @Import();
   getBoardsData() {
     this._fetchDataSubscription = this.boardService.getBoardsData().subscribe(data => this.boardsData = data);
   }

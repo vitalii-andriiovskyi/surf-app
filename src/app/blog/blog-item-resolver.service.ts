@@ -9,12 +9,14 @@ import { take, map } from 'rxjs/operators';
 
 @Injectable()
 export class BlogItemResolver implements Resolve<PostItem> {
+  id: string;
+
   constructor(private bs: BlogService, private router: Router) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<PostItem> {
-    const id = route.paramMap.get('id');
+    this.id = route.paramMap.get('id');
 
-    return this.bs.getPost(id)
+    return this.bs.getPost(this.id)
       .pipe(
         take(1),
         map(post => {
@@ -26,5 +28,20 @@ export class BlogItemResolver implements Resolve<PostItem> {
           }
         })
       );
+  }
+
+  getPost = () => {
+    return this.bs.getPost(this.id)
+    .pipe(
+      take(1),
+      map(post => {
+        if (post) {
+          return post;
+        } else { // id not found
+          this.router.navigate(['/blog']);
+          return null;
+        }
+      })
+    );
   }
 }

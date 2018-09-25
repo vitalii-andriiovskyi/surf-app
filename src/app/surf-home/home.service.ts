@@ -3,6 +3,7 @@ import { AjaxApiService } from '../core/services/ajax-api.service';
 import { ManageTransferStateService } from '../core/services/manage-transfer-state.service';
 import { BoardData } from './board-data';
 import { TeamData } from './surf-section-team/team-data';
+import { PostItem } from '../blog/post/post';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { TeamData } from './surf-section-team/team-data';
 export class HomeService {
   boardsToken = 'boards-';
   teamToken = 'home-team-';
+  postsToken = 'home-posts-';
 
   constructor(private ajaxApiService: AjaxApiService,
               private managerTransferState: ManageTransferStateService) { }
@@ -31,6 +33,9 @@ export class HomeService {
   }
 
   getPostsData(quant?: number) {
-    return this.ajaxApiService.getPosts(quant);
+    const getPosts = () => {
+      return this.ajaxApiService.getPosts(quant);
+    };
+    return this.managerTransferState.getRequestedData<PostItem[]>(this.postsToken, getPosts);
   }
 }

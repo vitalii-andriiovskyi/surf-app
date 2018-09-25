@@ -64,8 +64,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(function (req, res, next) {
 
-  // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+  if (process.env.NODE_ENV === 'production') {
+    // Website you wish to allow to connect
+    // res.setHeader('Access-Control-Allow-Origin', 'http://149.129.138.13');
+    res.setHeader('Access-Control-Allow-Origin', 'http://www.surf-app.tech');
+    // console.log(`HEADERS ---- ${res.getHeader('Access-Control-Allow-Origin')}`);
+
+  } else {
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+
+  }
   // console.log(`HEADERS ---- ${res.getHeader('Access-Control-Allow-Origin')}`);
   // Request methods you wish to allow
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -130,8 +139,8 @@ app.use(function(err, req, res, next) {
 const server = http.createServer(app);
 
 server.listen(PORT, HOSTNAME, () => {
-  console.log(`Node server listening on http://localhost:${PORT}`);
-  logger.info(`Node server listening on http://localhost:${PORT}`);
+  console.log(`Node server listening on http://${HOSTNAME}:${PORT}`);
+  logger.info(`Node server listening on http://${HOSTNAME}:${PORT}`);
 });
 
 

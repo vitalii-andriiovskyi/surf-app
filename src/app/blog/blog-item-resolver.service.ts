@@ -11,6 +11,7 @@ import { ManageTransferStateService } from '../core/services/manage-transfer-sta
 @Injectable()
 export class BlogItemResolver implements Resolve<PostItem> {
   id: string;
+  postToken = 'post-';
 
   constructor(private bs: BlogService,
               private router: Router,
@@ -19,7 +20,7 @@ export class BlogItemResolver implements Resolve<PostItem> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<PostItem> {
     this.id = route.paramMap.get('id');
 
-    return this.managerTransferState.getRequestedData<PostItem>(this.id, this.getPost);
+    return this.managerTransferState.getRequestedData<PostItem>(this.postToken + this.id, this.getPost);
   }
 
   getPost = () => {

@@ -3,6 +3,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { HomeService } from './home.service';
 import { AjaxApiService } from '../core/services/ajax-api.service';
 import { AjaxApiMockService } from '../core/services/ajax-api.mock.service';
+import { BrowserTransferStateModule } from '@angular/platform-browser';
 
 describe('HomeService', () => {
   beforeEach(() => {
@@ -10,7 +11,8 @@ describe('HomeService', () => {
       providers: [
         HomeService,
         { provide: AjaxApiService, useClass: AjaxApiMockService}
-      ]
+      ],
+      imports: [ BrowserTransferStateModule ]
     });
   });
 

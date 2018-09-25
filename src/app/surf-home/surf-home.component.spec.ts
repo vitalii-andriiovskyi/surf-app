@@ -11,6 +11,7 @@ import { HomeService } from './home.service';
 import { AjaxApiService } from '../core/services/ajax-api.service';
 import { AjaxApiMockService } from '../core/services/ajax-api.mock.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserTransferStateModule } from '@angular/platform-browser';
 
 describe('SurfHomeComponent', () => {
   let component: SurfHomeComponent;
@@ -18,7 +19,7 @@ describe('SurfHomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ BrowserAnimationsModule ],
+      imports: [ BrowserAnimationsModule, BrowserTransferStateModule ],
       declarations: [ SurfHomeComponent ],
       schemas:      [ NO_ERRORS_SCHEMA ],
       providers: [
@@ -27,7 +28,7 @@ describe('SurfHomeComponent', () => {
         { provide: BoardService, useClass: BoardStubService },
         HomeService,
         { provide:  AjaxApiService, useClass: AjaxApiMockService},
-      ]
+      ],
     })
     .compileComponents();
   }));

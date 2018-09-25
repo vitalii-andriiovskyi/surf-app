@@ -9,7 +9,7 @@ import { PostItem } from '../blog/post/post';
   providedIn: 'root'
 })
 export class HomeService {
-  boardsToken = 'boards-';
+  boardsToken = 'home-boards-';
   teamToken = 'home-team-';
   postsToken = 'home-posts-';
 

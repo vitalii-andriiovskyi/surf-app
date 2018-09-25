@@ -5,10 +5,15 @@ import { AjaxApiService } from '../core/services/ajax-api.service';
   providedIn: 'root'
 })
 export class HomeService {
+  boardsToken = 'boards-';
 
   constructor(private ajaxApiService: AjaxApiService) { }
 
   getBoardsData(quant?: number) {
+    const getBoardsStub = () => {
+      return this.ajaxApiService.getBoardsData(quant);
+    };
+
     return this.ajaxApiService.getBoardsData(quant);
   }
 

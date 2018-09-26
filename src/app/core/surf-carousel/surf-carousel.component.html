@@ -4,10 +4,11 @@
 		<div class="boards-next surf-carousel-next" [class.disabled]="nextDisabled" (click)="nextSlide()"></div>
 	</div> <!-- /.boards-nav surf-carousel-nav -->
 
-	<div class="surf-carousel-stage"  [ngSwitch]="currentSlideId" [ngStyle]="{'height': parentHeight + 'px'}">
+	<div class="surf-carousel-stage"  [ngSwitch]="currentSlideId" [ngStyle]="{'height': parentHeight}">
 		<ng-container *ngFor="let slide of slides">
-			<div class="boards-carousel-item-wrapper surf-carousel-items-wrapper" [@carouselState]="carouselSliderState" *ngSwitchCase="slide.id">
-				<div [surfCurrentHeight]="slide.id == currentSlideId && viewReady" (surfDefineHeight)="parentHeight=$event">
+			<div class="boards-carousel-item-wrapper surf-carousel-items-wrapper" [@carouselState]="carouselSliderState" *ngSwitchCase="slide.id"
+					[ngStyle]="{'position': wrapperPosition}">
+				<div [surfCurrentHeight]="slide.id == currentSlideId && viewReady" (passHeight)="changeHeightOfStage($event)">
 					<ng-template [ngTemplateOutlet]="slide.tplRef"></ng-template>			
 				</div>
 			</div><!-- /.boards-carousel-item-wrapper surf-carousel-items-wrapper --> 

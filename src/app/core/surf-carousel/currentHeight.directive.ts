@@ -8,11 +8,13 @@ import {
   OnChanges,
   OnInit,
   Inject,
-  OnDestroy
+  OnDestroy,
+  PLATFORM_ID
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ResizeService } from '../services/resize.service';
 import { WINDOW } from '../services/window-ref.service';
+import { isPlatformServer } from '@angular/common';
 
 // this directive is helpfull ib=n case when element has 'position: absolute' and parent has 'position: relative'.
 // Parent has one direct child and thus its height becomes 0. Element followed parent element stay under parent's child
@@ -25,13 +27,14 @@ import { WINDOW } from '../services/window-ref.service';
 })
 export class CurrentHeightDirective implements OnChanges, OnInit, OnDestroy {
   private resizeSubscription: Subscription;
-  @Input('surfCurrentHeight') actualElement: boolean = true;
-  @Output('surfDefineHeight') passHeight = new EventEmitter();
+  @Input('surfCurrentHeight') actualElement = true;
+  @Output() passHeight: EventEmitter<string> = new EventEmitter();
 
-  currentHeight: number;
+  currentHeight: string;
   constructor(private el: ElementRef,
               private resizeService: ResizeService,
-              @Inject(WINDOW) private winRef: Window) { }
+              @Inject(WINDOW) private winRef: Window,
+              @Inject(PLATFORM_ID) private platformId) { }
 
   ngOnInit() {
     this.resizeSubscription = this.resizeService.onResize$
@@ -55,7 +58,10 @@ export class CurrentHeightDirective implements OnChanges, OnInit, OnDestroy {
 
   getHeight() {
     if (!this.actualElement) { return 0; }
-    this.currentHeight = this.el.nativeElement.offsetHeight;
+    this.currentHeight = this.el.nativeElement.offsetHeight + 'px';
+    if (isPlatformServer(this.platformId)) {
+      this.currentHeight = 'auto';
+    }
   }
 
   @HostListener('click') getSelfHeight() {

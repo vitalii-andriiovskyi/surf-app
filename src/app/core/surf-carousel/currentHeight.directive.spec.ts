@@ -10,8 +10,8 @@ import { WINDOW, WINDOW_PROVIDERS } from '../services/window-ref.service';
 
 @Component({
   template: `
-    <div class="wrapper" [ngStyle]="{'height': parentHeight + 'px'}">
-      <div class="wrapper-inner"  (click)="!hasHeight" [surfCurrentHeight]="viewReady" (surfDefineHeight)="parentHeight=$event">
+    <div class="wrapper" [ngStyle]="{'height': parentHeight}">
+      <div class="wrapper-inner"  (click)="!hasHeight" [surfCurrentHeight]="viewReady" (passHeight)="parentHeight=$event">
         <div  [ngStyle]="{'height': ownHeight}" style="width: 100%;"></div>
       </div>
     </div>
@@ -87,10 +87,10 @@ describe('CurrentHeightDirective', () => {
 
      // maybe next line is wrong. Directive has ngOnChange() hook, which after creating directive calls function
      // defining the height og element with directive. But it seems this hook doesn't work in testing (maybe I'm wrong)
-    dir.passHeight.emit(elInner.offsetHeight);
+    dir.passHeight.emit(elInner.offsetHeight + 'px');
 
     fixture.detectChanges();
-    expect(comp.parentHeight).toBe(elInner.offsetHeight, '700');
+    expect(comp.parentHeight).toBe(elInner.offsetHeight + 'px', '700px');
   });
 
   it('should change parent height after changing own height (click on any element changes height)', () => {

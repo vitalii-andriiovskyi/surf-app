@@ -10,7 +10,9 @@ import {  TemplateRef,
           Input,
           QueryList,
           ContentChildren,
-          Optional } from '@angular/core';
+          Optional,
+          Inject,
+          PLATFORM_ID} from '@angular/core';
 
 import {
   trigger,
@@ -20,6 +22,7 @@ import {
   transition
 } from '@angular/animations';
 import { BoardService } from '../../surf-home/board.service';
+import { isPlatformServer } from '@angular/common';
 
 let nextId = 0;
 
@@ -89,12 +92,15 @@ export class SurfCarouselComponent implements OnInit, AfterContentChecked {
   // setting height is put on shoulders of directive surfCurrentHeight
   viewReady: boolean;
 
+  wrapperPosition = 'relative';
+
   // boardsData: BoardData[];
   // ids for every slide; example: ['slide1', 'slide2', 'slide3']
   slidersId: string[]; // this.slides.map(slide => slide.id);
 
   // property boardService is needed just for showing chosen tabs on each slide
-  constructor(@Optional() private boardService: BoardService) {
+  constructor(@Optional() private boardService: BoardService,
+              @Inject(PLATFORM_ID) private platformId) {
 
    }
 
@@ -192,6 +198,11 @@ export class SurfCarouselComponent implements OnInit, AfterContentChecked {
       }
 
     }, 1);
+  }
+
+  changeHeightOfStage(height: string) {
+    this.parentHeight = height;
+    this.wrapperPosition = isPlatformServer(this.platformId) ? 'relative' : 'absolute';
   }
 
   // properties cannot be changed until change of View isn't finished

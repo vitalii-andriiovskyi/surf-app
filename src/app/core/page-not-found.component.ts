@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'surf-not-found',
@@ -14,4 +15,10 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class PageNotFoundComponent { }
+export class PageNotFoundComponent implements OnInit {
+  constructor(private titleService: Title) { }
+
+  ngOnInit() {
+    this.titleService.setTitle('Surf App | Page Not Found');
+  }
+}

@@ -15,6 +15,7 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'surf-home',
@@ -43,14 +44,18 @@ export class SurfHomeComponent implements OnInit, OnDestroy {
   teamData: TeamData[];
   postData: PostItem[];
 
+  homeTitle = 'Surf App';
+
   constructor(private resizeService: ResizeService,
               @Inject(WINDOW) private winRef: Window,
-              private homeService: HomeService) { }
+              private homeService: HomeService,
+              private titleService: Title) { }
 
   ngOnInit() {
     this.getBoardsData();
     this.getTeamData();
     this.getPosts(3);
+    this.setTitle(this.homeTitle);
   }
 
   ngOnDestroy() {
@@ -69,6 +74,10 @@ export class SurfHomeComponent implements OnInit, OnDestroy {
 
   getPosts(quant?: number) {
     this._fetchPostsSubscription = this.homeService.getPostsData(quant).subscribe(data => this.postData = data);
+  }
+
+  public setTitle( newTitle: string) {
+    this.titleService.setTitle( newTitle );
   }
 
 }

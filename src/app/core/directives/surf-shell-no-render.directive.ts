@@ -1,10 +1,23 @@
-import { Directive } from '@angular/core';
+import { Directive, Inject, OnInit, PLATFORM_ID, TemplateRef, ViewContainerRef } from '@angular/core';
+import { isPlatformServer } from '@angular/common';
 
 @Directive({
   selector: '[surfShellNoRender]'
 })
-export class SurfShellNoRenderDirective {
+export class SurfShellNoRenderDirective implements OnInit {
 
-  constructor() { }
+  constructor(
+    private viewContainer: ViewContainerRef,
+    private templateRef: TemplateRef<any>,
+    @Inject(PLATFORM_ID) private platformId
+  ) { }
+
+  ngOnInit() {
+    if (isPlatformServer(this.platformId)) {
+      this.viewContainer.clear();
+    } else {
+      this.viewContainer.createEmbeddedView(this.templateRef);
+    }
+  }
 
 }

@@ -10,6 +10,8 @@ import { FacebookModule } from 'ngx-facebook';
 import { HandleLinkDirective } from './handle-link.directive';
 import { AddContentDirective } from './add-content.directive';
 
+import { SurfShellNoRenderDirective } from './surf-shell-no-render.directive';
+import { SurfShellRenderDirective } from './surf-shell-render.directive';
 
 @NgModule({
   imports: [
@@ -22,7 +24,9 @@ import { AddContentDirective } from './add-content.directive';
     NavbarCollapseDirective,
     CurrentHeightDirective,
     HandleLinkDirective,
-    AddContentDirective
+    AddContentDirective,
+    SurfShellNoRenderDirective,
+    SurfShellRenderDirective
   ],
   exports: [
     CommonModule,
@@ -31,7 +35,9 @@ import { AddContentDirective } from './add-content.directive';
     CurrentHeightDirective,
     NavbarCollapseDirective,
     HandleLinkDirective,
-    AddContentDirective
+    AddContentDirective,
+    SurfShellNoRenderDirective,
+    SurfShellRenderDirective
   ]
 })
 export class SharedModule { }

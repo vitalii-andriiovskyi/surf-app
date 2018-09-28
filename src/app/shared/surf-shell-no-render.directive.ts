@@ -13,6 +13,7 @@ export class SurfShellNoRenderDirective implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('log');
     if (isPlatformServer(this.platformId)) {
       this.viewContainer.clear();
     } else {

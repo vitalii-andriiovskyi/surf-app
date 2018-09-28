@@ -18,6 +18,9 @@ import { ResizeService } from '../core/services/resize.service';
 import { WINDOW_PROVIDERS } from '../core/services/window-ref.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { SurfShellNoRenderDirective } from '../shared/surf-shell-no-render.directive';
+import { SurfShellRenderDirective } from '../shared/surf-shell-render.directive';
+
 let menuService: MenuStubService;
 let activatedRoute: ActivatedRouteStub;
 
@@ -42,7 +45,13 @@ describe('TopMenuComponent', () => {
     TestBed.configureTestingModule({
       imports: [ NgbModule, BrowserAnimationsModule ],
       // imports: [ TopMenuModule, RouterModule, CommonModule ],
-      declarations: [ TopMenuComponent, NavbarCollapseDirective, RouterLinkStubDirective ],
+      declarations: [
+        TopMenuComponent,
+        NavbarCollapseDirective,
+        RouterLinkStubDirective,
+        SurfShellNoRenderDirective,
+        SurfShellRenderDirective
+      ],
       providers: [
         {provide: Router, useValue: RouterStub },
         {provide: MenuService, useValue: menuService },

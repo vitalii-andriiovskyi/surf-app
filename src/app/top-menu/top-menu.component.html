@@ -3,35 +3,77 @@
 	<nav class="container navbar justify-content-between navbar-expand-lg bootsnav">
 		<!-- Start Header Navigation -->
 		<a class="navbar-brand" [routerLink]="['/']">Surfers Co.</a>
-		<button type="button" class="navbar-toggler" (click)="setCollapsed()" [attr.aria-expanded]="!isCollapsed" aria-controls="navbar-menu">
-			<i class="fa fa-bars" [class.d-none]="!isCollapsed"></i>
-			<i class="fa fa-times" [class.d-none]="isCollapsed"></i>
-		</button>
 
-		<!-- End Header Navigation -->
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="navbar-menu" [ngbCollapse]="isCollapsed" [@collapseInOut]="collapseState">
-			<ul class="nav navbar-nav mx-auto">
-				<li *ngFor="let menuItem of menuItems | async" class="nav-item">
-					<a class="nav-link" (click)="setCollapsed()" [routerLink]="[menuItem.href]" routerLinkActive="active-navbar-a">{{menuItem.text}}</a>
-				</li>                    
-			</ul>
-			<!-- Start Atribute Navigation -->
-			<div class="attr-nav">
-				<ul class="list-inline d-flex justify-content-center">
-					<li class="list-inline-item"><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-					<li class="list-inline-item"><a href="https://www.instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-					<li class="list-inline-item">
-						<a href="mailto:domovik0712@gmail.com">
-							<span class="white-img bg-envelop"></span>
-							<span class="black-img bg-envelop-black"></span>
-						</a>
-					</li>
+		<!-- SSR. Code in the comment SSR is for fixing the issue with to-menu on mobile and tablet devices w  -->
+		<!-- Issue: Top menu always stay opened while generating on the server. The reason of that is 
+				absense of window object which is needed for defining to open or collapse the menu -->
+		<ng-container *surfShellRender>
+			<button  type="button" class="navbar-toggler" aria-controls="navbar-menu">
+				<i class="fa fa-times d-block d-lg-none"></i>
+			</button>
+	
+			<div class="collapse navbar-collapse" id="navbar-menu">
+				<ul class="nav navbar-nav mx-auto">
+					<li *ngFor="let menuItem of menuItems | async" class="nav-item">
+						<a class="nav-link" [routerLink]="[menuItem.href]" routerLinkActive="active-navbar-a">{{menuItem.text}}</a>
+					</li>                    
 				</ul>
-			</div> <!-- /.attr-nav -->
-			<!-- End Atribute Navigation -->
-		</div>	<!-- /.navbar-collapse -->
+				<!-- Start Atribute Navigation -->
+				<div class="attr-nav">
+					<ul class="list-inline d-flex justify-content-center">
+						<li class="list-inline-item"><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="https://www.instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						<li class="list-inline-item">
+							<a href="mailto:domovik0712@gmail.com">
+								<span class="white-img bg-envelop"></span>
+								<span class="black-img bg-envelop-black"></span>
+							</a>
+						</li>
+					</ul>
+				</div> <!-- /.attr-nav -->
+				<!-- End Atribute Navigation -->
+			</div>	<!-- /.navbar-collapse -->
+		</ng-container>
+
+		<!-- SSR -->
+
+
+		<ng-container *surfShellNoRender>
+			<button type="button" class="navbar-toggler" aria-controls="navbar-menu"
+				(click)="setCollapsed()"
+				[attr.aria-expanded]="!isCollapsed">
+				<i class="fa fa-bars" [class.d-none]="!isCollapsed"></i>
+				<i class="fa fa-times" [class.d-none]="isCollapsed"></i>
+			</button>
+		
+			<!-- End Header Navigation -->
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="navbar-menu" 
+					 [ngbCollapse]="isCollapsed"
+					 [@collapseInOut]="collapseState">
+				<ul class="nav navbar-nav mx-auto">
+					<li *ngFor="let menuItem of menuItems | async" class="nav-item">
+						<a class="nav-link" (click)="setCollapsed()" [routerLink]="[menuItem.href]" routerLinkActive="active-navbar-a">{{menuItem.text}}</a>
+					</li>                    
+				</ul>
+				<!-- Start Atribute Navigation -->
+				<div class="attr-nav">
+					<ul class="list-inline d-flex justify-content-center">
+						<li class="list-inline-item"><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="https://www.instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						<li class="list-inline-item">
+							<a href="mailto:domovik0712@gmail.com">
+								<span class="white-img bg-envelop"></span>
+								<span class="black-img bg-envelop-black"></span>
+							</a>
+						</li>
+					</ul>
+				</div> <!-- /.attr-nav -->
+				<!-- End Atribute Navigation -->
+			</div>	<!-- /.navbar-collapse -->
+
+		</ng-container>
 	</nav>	<!-- /.navbar navbar-default bootsnav menu-center -->
 
 </header><!-- /.top-panel -->

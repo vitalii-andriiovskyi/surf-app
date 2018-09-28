@@ -18,6 +18,7 @@ import { SwUpdatesService } from './sw-updates/sw-updates.service';
 import { ScrollDirective } from './directives/scroll.directive';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 import { SurfShellNoRenderDirective } from './directives/surf-shell-no-render.directive';
+import { SurfShellRenderDirective } from './directives/surf-shell-render.directive';
 
 @NgModule({
   imports:      [ CommonModule, SurfCarouselModule ],
@@ -26,7 +27,8 @@ import { SurfShellNoRenderDirective } from './directives/surf-shell-no-render.di
     CatchScrollOuterzoneDirective,
     ScrollDirective,
     ScrollToTopComponent,
-    SurfShellNoRenderDirective
+    SurfShellNoRenderDirective,
+    SurfShellRenderDirective
   ],
   exports:      [
     SurfCarouselModule,

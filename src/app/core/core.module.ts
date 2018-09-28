@@ -35,7 +35,9 @@ import { SurfShellRenderDirective } from './directives/surf-shell-render.directi
     PageNotFoundComponent,
     CatchScrollOuterzoneDirective,
     ScrollDirective,
-    ScrollToTopComponent
+    ScrollToTopComponent,
+    SurfShellNoRenderDirective,
+    SurfShellRenderDirective
   ],
   providers: [
     // WindowRefService,

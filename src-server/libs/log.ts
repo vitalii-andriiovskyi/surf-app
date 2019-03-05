@@ -1,5 +1,6 @@
-import { Logger } from 'winston';
-const winston = require('winston');
+import { join } from 'path';
+const { createLogger, format, transports } = require('winston');
+const { combine, colorize, label, json } = format;
 
 const ENV = process.env.NODE_ENV;
 
@@ -10,21 +11,22 @@ function getLogger(module) {
     path = module.filename.split('\\').slice(-2).join('/');
   }
 
-  const logger = new winston.Logger({
+  const logger = createLogger({
     transports: [
-      new winston.transports.Console({
-        colorize: true,
+      new transports.Console({
         level: ENV === 'development' ? 'debug' : 'error',
-        label: path
+        format: combine(
+          colorize(),
+          label({label: path})
+        )
       }),
-      new winston.transports.File({
+      new transports.File({
         level: 'info',
         filename: './logs/all-logs.log',
-        handleExceptions: true,
-        json: true,
+        // handleExceptions: true,
         maxsize: 5242880, // 5MB
         maxFiles: 5,
-        colorize: false
+        format: json(),
       }),
     ],
     exitOnError: false
@@ -35,7 +37,6 @@ function getLogger(module) {
       logger.info(message);
     }
   };
-
   return logger;
 }
 

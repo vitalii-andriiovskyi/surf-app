@@ -36,7 +36,10 @@ const app = express();
 
 const PORT = config.get('port');
 const HOSTNAME =  process.env.NODE_ENV === 'production' ? config.get('hostname') : 'localhost';
-const DIST_FOLDER = join(process.cwd(), 'dist');
+
+// To deploy the server on Amazon LightSail under the ftpuser, the variable DIST_FOLDER must be '/home/ftpuser/surf-app/dist'
+// Otherwise its value will be `/home/ubuntu/dist/browser`, which is incorrect for my case.
+const DIST_FOLDER = process.env.NODE_ENV === 'production' ? '/home/ftpuser/surf-app/dist' : join(process.cwd(), 'dist');
 
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
@@ -67,7 +70,8 @@ app.use(function (req, res, next) {
   if (process.env.NODE_ENV === 'production') {
     // Website you wish to allow to connect
     // res.setHeader('Access-Control-Allow-Origin', 'http://149.129.138.13');
-    res.setHeader('Access-Control-Allow-Origin', 'http://www.surf-app.tech');
+    // res.setHeader('Access-Control-Allow-Origin', 'http://www.surf-app.tech');
+    res.setHeader('Access-Control-Allow-Origin', 'http://35.158.177.110');
     // console.log(`HEADERS ---- ${res.getHeader('Access-Control-Allow-Origin')}`);
 
   } else {

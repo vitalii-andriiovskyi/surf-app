@@ -1,6 +1,6 @@
 {
-  "name": "pwa-app",
-  "short_name": "pwa-app",
+  "name": "surf-app",
+  "short_name": "surf-app",
   "theme_color": "#00b0ff",
   "background_color": "#fff",
   "display": "standalone",

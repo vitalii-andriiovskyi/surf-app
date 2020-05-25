@@ -369,11 +369,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@ng-bootstrap/ng-bootstrap@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-4.0.0.tgz#e56aafc8e3ae900b88d528303a5962cc363088ed"
-  dependencies:
-    tslib "^1.9.0"
+"@ng-bootstrap/ng-bootstrap@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-6.1.0.tgz#fce7550a095aeac42108f76ac1ebd63caf8304e9"
+  integrity sha512-2GzkNJBKdeHkaUqaCAqSILPft0IzzHjMfAlAuGY6/ZLlVQ0glt5MTbIXtIhSbjR+OvlrljoXFLrvzs1LGdmE+A==
 
 "@ngtools/webpack@7.0.7":
   version "7.0.7"
@@ -5977,11 +5976,10 @@ ngx-facebook@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/ngx-facebook/-/ngx-facebook-2.4.0.tgz#454141ce41118c1956d9db896c956f3891f8bbd7"
 
-ngx-owl-carousel-o@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-owl-carousel-o/-/ngx-owl-carousel-o-1.0.0.tgz#023186940054dbc6f2959a8b3ae8890021b8c912"
-  dependencies:
-    tslib "^1.9.0"
+ngx-owl-carousel-o@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/ngx-owl-carousel-o/-/ngx-owl-carousel-o-3.0.1.tgz#45e6725f9d8706497b7ba53124f5dca961072bba"
+  integrity sha512-OaN0T51CXzGTj5epopfs+iiaIepRlqiY7aE6+hpdX6UG2ShDyC4veQ0ti5pS1CWmom5jD3eB6Oyx21VvJX9qYg==
 
 ngx-youtube-player@^6.0.0:
   version "6.0.0"
@@ -8654,9 +8652,14 @@ tsconfig-paths@^3.4.0, tsconfig-paths@^3.6.0:
     minimist "^1.2.0"
     strip-bom "^3.0.0"
 
-tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
+tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
+
+tslib@^1.9.0:
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
+  integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
 
 tslint@^5.11.0:
   version "5.11.0"

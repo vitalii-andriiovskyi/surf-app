@@ -13,7 +13,7 @@ import { BoardService } from './board.service';
 import { SurfSectionAboutUsComponent } from './surf-section-about-us/surf-section-about-us.component';
 import { SurfSectionTeamComponent } from './surf-section-team/surf-section-team.component';
 import { SurfSectionBlogComponent } from './surf-section-blog/surf-section-blog.component';
-import { SurfSectionSocNetComponent } from './surf-section-soc-nets/surf-section-soc-net.component';
+// import { SurfSectionSocNetComponent } from './surf-section-soc-nets/surf-section-soc-net.component';
 import { YoutubePlayerModule } from 'ngx-youtube-player';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
@@ -33,7 +33,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     SurfSectionAboutUsComponent,
     SurfSectionTeamComponent,
     SurfSectionBlogComponent,
-    SurfSectionSocNetComponent
+    // SurfSectionSocNetComponent
   ],
   exports: [
     SurfHomeComponent,

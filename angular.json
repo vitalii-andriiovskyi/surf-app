@@ -105,8 +105,34 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/surfer-app-server",
-            "main": "src/main.server.ts",
+            "main": "server.ts",
             "tsConfig": "src/tsconfig.server.json"
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "surfer-app:build",
+            "serverTarget": "surfer-app:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "surfer-app:build:production",
+              "serverTarget": "surfer-app:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "surfer-app:build:production",
+            "serverTarget": "surfer-app:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
           }
         }
       }

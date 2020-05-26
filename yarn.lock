@@ -4087,7 +4087,7 @@ domelementtype@^2.0.1:
   resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-2.0.1.tgz#1f8bdfe91f5a78063274e803b4bdcedf6e94f94d"
   integrity sha512-5HOHUDsYZWV8FGWN0Njbr/Rn7f/eWSQi1v7+HsUVwXgn8nWWlL64zKDkS0n8ZmQ3mlWOMuXOnR+7Nx/5tMO5AQ==
 
-domino@^2.1.2:
+domino@^2.1.2, domino@^2.1.5:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/domino/-/domino-2.1.5.tgz#4aa08e395d496c463c3afee1cd0f7173f63eacb5"
   integrity sha512-vMDo7f6ogUV9PkzmxXLiXzJkJZqU09Le4C40mj+HmAGS/2FPmdetoNOQZXpu2kekn0GJKvtwKMAVoruTj60Xww==

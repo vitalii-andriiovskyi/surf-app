@@ -27,10 +27,11 @@ const errorhandler = require('errorhandler');
 
 const mongoose = require('/src-server/libs/mongoose');
 // Faster server renders w/ Prod mode (dev mode never needed)
+import { readFileSync } from 'fs'; // import readFileSync            (1)
+const domino = require('domino');  // import the library `domino`    (2)
 
 enableProdMode();
 
-global['Event'] = {};
 // Express server
 const app = express();
 
@@ -41,6 +42,9 @@ const HOSTNAME =  process.env.NODE_ENV === 'production' ? config.get('hostname')
 // Otherwise its value will be `/home/ubuntu/dist/browser`, which is incorrect for my case.
 const DIST_FOLDER = process.env.NODE_ENV === 'production' ? '/home/ftpuser/surf-app/dist' : join(process.cwd(), 'dist');
 
+const template = readFileSync(join(DIST_FOLDER, 'browser/index.html')).toString(); // use `index.html` as template (3)
+const win = domino.createWindow(template); // create object Window                     (4)
+global['Event'] = win.Event;               // assign the `win.Event` to prop `Event`   (5)
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/surfer-app-server/main');

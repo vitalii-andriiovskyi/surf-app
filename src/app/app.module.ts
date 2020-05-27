@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { CoreModule } from './core/core.module';
 import { TopMenuModule } from './top-menu/top-menu.module';
@@ -30,7 +30,7 @@ import { RouterLinkStubDirective, RouterOutletStubComponent } from '../testing';
   ],
   imports: [
     CoreModule.forRoot(),
-    NgbModule,
+    // NgbModule,
     // FacebookModule.forRoot(),
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,

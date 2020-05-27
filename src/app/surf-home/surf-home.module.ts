@@ -10,18 +10,18 @@ import { NgbTabsetGridedComponent } from './surf-section-boards/ngb-tabset-gride
 import { NgbTabsetExpandedComponent } from './surf-section-boards/ngb-tabset-expanded.component';
 
 import { BoardService } from './board.service';
-import { SurfSectionAboutUsComponent } from './surf-section-about-us/surf-section-about-us.component';
+// import { SurfSectionAboutUsComponent } from './surf-section-about-us/surf-section-about-us.component';
 import { SurfSectionTeamComponent } from './surf-section-team/surf-section-team.component';
 import { SurfSectionBlogComponent } from './surf-section-blog/surf-section-blog.component';
 // import { SurfSectionSocNetComponent } from './surf-section-soc-nets/surf-section-soc-net.component';
-import { YoutubePlayerModule } from 'ngx-youtube-player';
+// import { YoutubePlayerModule } from 'ngx-youtube-player';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   imports: [
     SharedModule,
     SurfCarouselModule,
-    YoutubePlayerModule,
+    // YoutubePlayerModule,
     SurfHomeRoutingModule,
     CarouselModule
   ],
@@ -30,7 +30,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     SurfSectionBoardsComponent,
     NgbTabsetGridedComponent,
     NgbTabsetExpandedComponent,
-    SurfSectionAboutUsComponent,
+    // SurfSectionAboutUsComponent,
     SurfSectionTeamComponent,
     SurfSectionBlogComponent,
     // SurfSectionSocNetComponent

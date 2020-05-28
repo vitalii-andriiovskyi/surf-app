@@ -11,22 +11,26 @@ import { join } from 'path';
 const debug = require('debug')('surfer-app-server:server');
 const http = require('http');
 
-const config = require('src-server/config');
+import nconf from './src-server/config';
+const config = nconf;
 
-const logger = require('/src-server/libs/log')(module);
-
+import getLogger from './src-server/libs/log';
+const logger = getLogger(module);
 
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 // const HttpError = require('/src-server/error/index').HttpError;
 
 import { HttpError } from './src-server/error/index';
+import router from './src-server/routes';
 
-const routerDB = require('/src-server/routes');
+const routerDB = router;
 
-const errorhandler = require('errorhandler');
+// const errorhandler = require('errorhandler');
 
-const mongoose = require('/src-server/libs/mongoose');
+import mongoose from './src-server/libs/mongoose';
+import sendHttpError from './src-server/middleware/sendHttpError';
+
 import { existsSync, readFileSync } from 'fs';
 const domino = require('domino');  // import the library `domino`    (2)
 
@@ -91,7 +95,7 @@ export function app() {
     next();
   });
 
-  server.use(require('/src-server/middleware/sendHttpError'));
+  server.use(sendHttpError);
 
   // TODO: implement data requests securely
   server.use('/api', routerDB);
@@ -122,9 +126,10 @@ export function app() {
       res.sendHttpError(err);
     } else {
       if (server.get('env') === 'development') {
-        server.use(errorhandler(err, req, res, next));
+        // server.use(errorhandler({ log: false}));
         // var errorHandler = express.errorHandler();
         // errorHandler(err, req, res, next);
+        logger.error(err);
       } else {
         logger.error(err);
         err = new HttpError(500);

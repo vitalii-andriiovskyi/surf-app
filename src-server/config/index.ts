@@ -4,7 +4,7 @@ import { join } from 'path';
 
 // const nconf = require('nconf');
 // const path = require('path');
+console.log(join(__dirname, '../config.json'));
+nconf.argv().env().file({file: join(__dirname, '../config.json')} );
 
-nconf.argv().env().file({file: join(__dirname, 'config.json')} );
-
-export = nconf;
+export default nconf;

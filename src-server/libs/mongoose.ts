@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 
 import { Connect } from 'mongoose';
-const config = require('/src-server/config');
+import nconf from '../config';
+const config = nconf;
+// const config = require('/src-server/config');
 
-mongoose.connect(config.get('mongoose:uri'), config.get('mongoose:options'));
+mongoose
+  .connect(config.get('mongoose:uri'), config.get('mongoose:options'))
+  .catch(err => console.log(err));
 mongoose.set('useCreateIndex', true);
-module.exports = mongoose;
+export default mongoose;

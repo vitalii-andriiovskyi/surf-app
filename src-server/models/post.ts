@@ -1,5 +1,5 @@
-const mongoose = require('/src-server/libs/mongoose'),
-  Schema = mongoose.Schema;
+import mongoose from '../libs/mongoose';
+const Schema = mongoose.Schema;
 
 // const HttpError = require('/src-server/error').HttpError;
 import { HttpError } from '../error';
@@ -35,4 +35,5 @@ const schema = new Schema({
   imageDesc: { type: String }
 });
 
-exports.Post = mongoose.model('Post', schema);
+const Post = mongoose.model('Post', schema);
+export default Post;

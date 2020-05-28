@@ -10,6 +10,7 @@ import { join } from 'path';
 
 const debug = require('debug')('surfer-app-server:server');
 const http = require('http');
+const cors = require('cors');
 
 import nconf from './src-server/config';
 const config = nconf;
@@ -21,7 +22,7 @@ const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 // const HttpError = require('/src-server/error/index').HttpError;
 
-import { HttpError } from './src-server/error/index';
+import HttpError from './src-server/error';
 import router from './src-server/routes';
 
 const routerDB = router;
@@ -63,37 +64,28 @@ export function app() {
   logger.debug(`Overriding 'Express' logger`);
   server.use( require('morgan')('combined', { 'stream': logger.stream }) );
 
+  const whitelist = [
+    'http://35.158.177.110',
+    'http://localhost:4200',
+    'http://localhost:4040',
+    'http://127.0.0.1:4040',
+    'http://127.0.0.1'
+  ];
+  const corsOptions = {
+    origin: function (origin, callback) {
+      if (whitelist.indexOf(origin) !== -1 || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error(`${origin} Not allowed by CORS`));
+      }
+    }
+  };
+
+  server.use(cors(corsOptions));
+
   server.use(express.json());
   server.use(express.urlencoded({ extended: false }));
   server.use(cookieParser());
-  server.use(function (req, res, next) {
-
-    if (process.env.NODE_ENV === 'production') {
-      // Website you wish to allow to connect
-      // res.setHeader('Access-Control-Allow-Origin', 'http://149.129.138.13');
-      // res.setHeader('Access-Control-Allow-Origin', 'http://www.surf-app.tech');
-      res.setHeader('Access-Control-Allow-Origin', 'http://35.158.177.110');
-      // console.log(`HEADERS ---- ${res.getHeader('Access-Control-Allow-Origin')}`);
-
-    } else {
-      // Website you wish to allow to connect
-      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
-
-    }
-    // console.log(`HEADERS ---- ${res.getHeader('Access-Control-Allow-Origin')}`);
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-
-    // Pass to next layer of middleware
-    next();
-  });
 
   server.use(sendHttpError);
 

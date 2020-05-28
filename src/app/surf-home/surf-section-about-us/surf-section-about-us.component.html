@@ -18,15 +18,13 @@
 			<div class="col-md-6 col-lg-6 offset-lg-1">
 				
 				<div class="about-us-video-wrapper">
-					<div class="play-button" [ngClass]="{'hidden': isHidden}" (click)="playVideo(); isHidden = !isHidden;"></div>
-					<img [src]="['assets/img/surfing-man-2.png']" alt="About us" [ngClass]="{'hidden': isHidden}" (click)="playVideo(); isHidden = !isHidden;">
-					<youtube-player *ngIf="isYoutubeVisible"
+					<div class="play-button" [ngClass]="{'hidden': isHidden}" (click)="playVideo(YTPlayer); isHidden = !isHidden;"></div>
+					<img [src]="['assets/img/surfing-man-2.png']" alt="About us" [ngClass]="{'hidden': isHidden}" (click)="playVideo(YTPlayer); isHidden = !isHidden;">
+					<youtube-player #YTPlayer
 						[videoId]="id" 
 						(ready)="savePlayer($event)"
-						(change)="onStateChange($event)"
 					></youtube-player>
 				</div> <!-- /.about-us-video-wrapper -->
-
 			</div> <!-- /.col-md-6 col-lg-4 offset-lg-1-->
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->

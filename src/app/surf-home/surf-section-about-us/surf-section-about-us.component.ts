@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { DOCUMENT } from '../../core/services/document-ref.service';
+import { YouTubePlayer } from '@angular/youtube-player';
 
 @Component({
   selector: 'surf-section-about-us',
@@ -8,27 +10,27 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class SurfSectionAboutUsComponent implements OnInit {
   isHidden = false;
-  player: YT.Player;
   id = 'dNVhok5PlEI';
-  isYoutubeVisible = false;
+  player: YouTubePlayer;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(DOCUMENT) private docRef: Document) { }
 
-  savePlayer(player) {
+  savePlayer(player: YouTubePlayer) {
     this.player = player;
     // console.log('player instance', player);
   }
-  onStateChange(event) {
-    // console.log('player state', event.data);
-  }
 
-  playVideo() {
-    this.player.playVideo();
+  playVideo(player: YouTubePlayer) {
+    player.playVideo();
   }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      this.isYoutubeVisible = true;
+      const tag = this.docRef.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      this.docRef.body.appendChild(tag);
     }
   }
 

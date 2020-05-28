@@ -228,6 +228,14 @@
   resolved "https://registry.yarnpkg.com/@angular/service-worker/-/service-worker-9.1.9.tgz#2a5fbd528aed4a69e7f5d6b80ecaf5f6878e51d7"
   integrity sha512-TRN9SD38VfyrVwObeAYhogQqSHl9hax51Vi/egEt/LXdOFBIssLsW0Wa3WOByzo25zcR3M2mMbQ7UuWtUnfduA==
 
+"@angular/youtube-player@^9.2.4":
+  version "9.2.4"
+  resolved "https://registry.yarnpkg.com/@angular/youtube-player/-/youtube-player-9.2.4.tgz#676dc6159315e6f780c9cf5db40c45b407c2e5e5"
+  integrity sha512-Qojf/66Cex4ppqqe18ew4UVeZVQil6k+1n4r+BAp5/tWS3t3NhhW/xU2zYZujhckOCyH+NNIMjrguY/CrFKOnw==
+  dependencies:
+    "@types/youtube" "^0.0.38"
+    tslib "^1.9.0"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.8.3.tgz#33e25903d7481181534e12ec0a25f16b6fcf419e"
@@ -1327,6 +1335,11 @@
   version "0.0.32"
   resolved "https://registry.yarnpkg.com/@types/youtube/-/youtube-0.0.32.tgz#b53ebc75e6646d7dc46295b8eceb5f1e596f68ae"
   integrity sha512-fNknzXya97rrOnv9ulBdDefMcyViIuwSeFAPw+/ymofer2D6myXO6E3MucmcNAXjHzrlyLnrwwDied0bZqg0jw==
+
+"@types/youtube@^0.0.38":
+  version "0.0.38"
+  resolved "https://registry.yarnpkg.com/@types/youtube/-/youtube-0.0.38.tgz#04aa5efa61f4d52e9cf682575a9dfed58f31e8c1"
+  integrity sha512-rS0nLlnnZIvOfBNT4957rkKRMHjHxutoVhSEzowocYgNiTMVBmN+Hbkf/L3TeGMMtts9uKZ9gw7O2JLHREVnIw==
 
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"

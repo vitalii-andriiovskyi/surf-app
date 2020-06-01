@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarCollapseDirective } from './navbar-collapse.directive';
 import { CurrentHeightDirective } from './currentHeight.directive';
-// import { FacebookModule } from 'ngx-facebook';
+import { FacebookModule } from 'ngx-facebook-fb';
 
 import { HandleLinkDirective } from './handle-link.directive';
 import { AddContentDirective } from './add-content.directive';
@@ -18,7 +18,7 @@ import { SurfShellRenderDirective } from './surf-shell-render.directive';
     CommonModule,
     FormsModule,
     NgbModule,
-    // FacebookModule
+    FacebookModule
   ],
   declarations: [
     NavbarCollapseDirective,
@@ -31,7 +31,7 @@ import { SurfShellRenderDirective } from './surf-shell-render.directive';
   exports: [
     CommonModule,
     NgbModule,
-    // FacebookModule,
+    FacebookModule,
     CurrentHeightDirective,
     NavbarCollapseDirective,
     HandleLinkDirective,

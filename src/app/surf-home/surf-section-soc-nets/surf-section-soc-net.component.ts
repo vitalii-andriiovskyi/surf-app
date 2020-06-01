@@ -1,6 +1,7 @@
 import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
-import { FacebookService, InitParams } from 'ngx-facebook';
 import { isPlatformBrowser } from '@angular/common';
+
+import { FacebookService, InitParams } from 'ngx-facebook-fb';
 
 @Component({
   selector: 'surf-section-soc-net',

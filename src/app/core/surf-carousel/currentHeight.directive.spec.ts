@@ -29,7 +29,7 @@ import { WINDOW, WINDOW_PROVIDERS } from '../services/window-ref.service';
   `],
 })
 class TestComponent implements OnInit {
-  parentHeight: number;
+  parentHeight: string;
   hasHeight = true;
   ownHeight = '0';
 
@@ -70,7 +70,7 @@ describe('CurrentHeightDirective', () => {
     fixture = TestBed.createComponent(TestComponent);
 
     comp = fixture.componentInstance;
-    comp.parentHeight = 0;
+    comp.parentHeight = '0';
     // passScrollingDataService = fixture.debugElement.injector.get(PassScrollingDataService);
     fixture.detectChanges();
 

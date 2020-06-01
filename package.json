@@ -60,7 +60,7 @@
     "mongoose": "^5.2.10",
     "morgan": "~1.9.0",
     "nconf": "^0.10.0",
-    "ngx-facebook": "^2.4.0",
+    "ngx-facebook-fb": "^1.0.0",
     "ngx-owl-carousel-o": "3.0.1",
     "ngx-youtube-player": "^6.0.0",
     "require_optional": "^1.0.1",

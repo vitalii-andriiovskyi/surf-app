@@ -1,4 +1,4 @@
-module.exports = function(req, res, next) {
+function sendHttpError(req, res, next) {
   res.sendHttpError = function(error) {
     res.status = error.status;
     // if there is ajax request then res.json() else ...
@@ -10,3 +10,5 @@ module.exports = function(req, res, next) {
   };
   next();
 };
+
+export default sendHttpError;

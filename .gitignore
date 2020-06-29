@@ -35,6 +35,7 @@ testem.log
 yarn-error.log
 debug.log
 /src-server/logs/*.log
+/logs/*.log
 
 # e2e
 /e2e/*.js

@@ -1,5 +1,5 @@
-const mongoose = require('/src-server/libs/mongoose'),
-  Schema = mongoose.Schema;
+import mongoose from '../libs/mongoose';
+const Schema = mongoose.Schema;
 
 import { HttpError } from '../error';
 
@@ -62,4 +62,5 @@ const schema = new Schema({
   }
  });
 
-module.exports.Board = mongoose.model('Board', schema);
+const Board = mongoose.model('Board', schema);
+export default Board;

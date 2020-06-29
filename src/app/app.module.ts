@@ -6,12 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { CoreModule } from './core/core.module';
 import { TopMenuModule } from './top-menu/top-menu.module';
 import { SurfHomeModule } from './surf-home/surf-home.module';
-import { FacebookModule } from 'ngx-facebook';
+import { FacebookModule } from 'ngx-facebook-fb';
 import { SurfFooterModule } from './surf-footer/surf-footer.module';
 import { BlogModule } from './blog/blog.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -30,7 +30,7 @@ import { RouterLinkStubDirective, RouterOutletStubComponent } from '../testing';
   ],
   imports: [
     CoreModule.forRoot(),
-    NgbModule.forRoot(),
+    // NgbModule,
     FacebookModule.forRoot(),
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,

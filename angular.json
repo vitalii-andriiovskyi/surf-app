@@ -11,6 +11,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -29,6 +30,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -98,8 +105,47 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/surfer-app-server",
-            "main": "src/main.server.ts",
+            "main": "server.ts",
             "tsConfig": "src/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "surfer-app:build",
+            "serverTarget": "surfer-app:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "surfer-app:build:production",
+              "serverTarget": "surfer-app:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "surfer-app:build:production",
+            "serverTarget": "surfer-app:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
           }
         }
       }
@@ -134,7 +180,7 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "surf",
-      "styleext": "sass"
+      "style": "sass"
     },
     "@schematics/angular:directive": {
       "prefix": "surf"

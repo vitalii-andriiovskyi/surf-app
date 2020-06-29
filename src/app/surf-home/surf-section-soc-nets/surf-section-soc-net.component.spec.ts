@@ -3,7 +3,7 @@ import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 import { SurfSectionSocNetComponent } from './surf-section-soc-net.component';
-import { FacebookModule, FacebookService, InitParams } from 'ngx-facebook';
+import { FacebookModule, FacebookService, InitParams } from 'ngx-facebook-fb';
 
 describe('SurfSectionSocNetComponent', () => {
   let component: SurfSectionSocNetComponent;

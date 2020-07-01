@@ -8,7 +8,7 @@ import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
 import { join } from 'path';
 
-const debug = require('debug')('surfer-app-server:server');
+const debug = require('debug')('surfer-app:server');
 const http = require('http');
 const cors = require('cors');
 
@@ -42,7 +42,12 @@ const DIST_FOLDER = join(process.cwd(), 'dist/browser');
 
 const template = readFileSync(join(DIST_FOLDER, 'index.html')).toString(); // use `index.html` as template (3)
 const win = domino.createWindow(template); // create object Window                     (4)
+global['Window'] = win;
 global['Event'] = win.Event;               // assign the `win.Event` to prop `Event`   (5)
+global['HTMLElement'] = win.HTMLElement;
+global['Document'] = win.document;
+global['document'] = win.document;
+global['requestAnimationFrame'] = (fn: Function) => 1;
 
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
@@ -122,6 +127,7 @@ export function app() {
         // var errorHandler = express.errorHandler();
         // errorHandler(err, req, res, next);
         logger.error(err);
+        console.log('ts-node:', err);
       } else {
         logger.error(err);
         err = new HttpError(500);
@@ -138,8 +144,7 @@ export function app() {
 }
 
 function run() {
-  // const port = process.env.PORT || 4000;
-  const PORT = config.get('port');
+  const PORT = process.env.PORT || config.get('port');
   const HOSTNAME =  process.env.NODE_ENV === 'production' ? config.get('hostname') : 'localhost';
 
   // Start up the Node server
@@ -220,7 +225,10 @@ function run() {
 // '__non_webpack_require__' is a proxy to Node 'require'
 // The below code is to ensure that the server is run only when not requiring the bundle.
 declare const __non_webpack_require__: NodeRequire;
-const mainModule = __non_webpack_require__.main;
+const mainModule =
+  typeof __non_webpack_require__ !== 'undefined'
+    ? __non_webpack_require__.main
+    : require.main;
 const moduleFilename = mainModule && mainModule.filename || '';
 if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
   run();

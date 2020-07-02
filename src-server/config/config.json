@@ -2,7 +2,7 @@
 	"port": 4040,
 	"hostname": "127.0.0.1",
   "mongoose": {
-		"uri": "mongodb://localhost:27017/surf",
+		"uri": "mongodb://vit:secret@mongo_db:27017/surf",
 		"options": { 
 			"socketTimeoutMS": 0,
 			"keepAlive": true,

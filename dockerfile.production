@@ -1,4 +1,4 @@
-FROM node:12 AS surf-api
+FROM node:12 AS surf-ssr
 WORKDIR /usr/src/surf-api
 COPY ./dist .
 RUN yarn config set unsafe-perm true && yarn

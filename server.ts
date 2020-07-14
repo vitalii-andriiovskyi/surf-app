@@ -7,6 +7,7 @@ import 'zone.js/dist/zone-node';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
 import { join } from 'path';
+import * as morgan from 'morgan';
 
 const debug = require('debug')('surfer-app:server');
 const http = require('http');
@@ -16,7 +17,7 @@ import nconf from './src-server/config';
 const config = nconf;
 
 import getLogger from './src-server/libs/log';
-const logger = getLogger(module);
+const logger = getLogger(__filename);
 
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
@@ -67,14 +68,18 @@ export function app() {
   server.set('views', distFolder);
 
   logger.debug(`Overriding 'Express' logger`);
-  server.use( require('morgan')('combined', { 'stream': logger.stream }) );
+  server.use( morgan('combined', { stream: logger.stream }) );
 
   const whitelist = [
+    'http://18.185.79.188:8080',
+    'http://18.185.79.188',
     'http://35.158.177.110',
     'http://localhost:4200',
     'http://localhost:4040',
+    'http://localhost:8080',
     'http://127.0.0.1:4040',
-    'http://127.0.0.1'
+    'http://127.0.0.1',
+    'http://172.21.0.5:4040'
   ];
   const corsOptions = {
     origin: function (origin, callback) {

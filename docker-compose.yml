@@ -3,9 +3,9 @@ version: '3.8'
 services: 
   surf-app:
     container_name: surf-app
-    image: example/my_web_app:latest
-    working_dir: /usr/src/surf-api
+    image: 2467100/surf-ssr:latest
     environment:
+      PORT: "4040"
       MONGO_DB_URI: mongodb://vit:secret@mongo_db:27017/surf
     networks:
       - surf_net
@@ -15,7 +15,7 @@ services:
       - mongo_db
   
   mongo_db:
-    image: mongo:latest
+    image: 2467100/recipe-surf-db:latest
     container_name: mongo_db
     environment: 
       MONGO_INITDB_ROOT_USERNAME: vit

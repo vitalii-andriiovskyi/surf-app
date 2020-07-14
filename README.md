@@ -1,7 +1,7 @@
 # SurferApp
 
 This is my first testing project based on Angular 6. It was updated to Angular 9 later.
-Working example is [here](http://35.158.177.110:8080/)
+Working example is [here](http://18.185.79.188:8080)
 
 ## Features
 

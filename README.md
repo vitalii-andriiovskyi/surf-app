@@ -16,7 +16,7 @@ The app uses Angular Universal and Service Worker. But the project doesn't use S
 
 This app has own implementation of scrolling to top. However, `ViewportScroller` could be used instead. I didn't know about it while developing the test project.
 
-## Issues with the server side rendering (SSR).
+## Issues with the server side rendering (SSR)
 
 1. The server has the `config.json` file. `nconf` reads this file before connecting to MongoDB:
 
@@ -27,6 +27,8 @@ This app has own implementation of scrolling to top. However, `ViewportScroller`
     This code leads to that the server bundle tries to find `config.json` in **dist** folder. But this file is absent after running `yarn build:ssr`.
 
     Don't forget put this file manually into **dist** folder.
+
+    Also change the localhost to `mongodb` in `config.json` for deployment. In development it should be `mongo_db`.
 
 2. The line with `const DIST_FOLDER=join(process.cwd(), 'dist')` (`server.ts`) was the culprit of not rendering the `index.html` on the server. The rendering hasn't even started. This is because the value of `DIST_FOLDER` was `/home/ubuntu/dist/browser`. But I deployed the app in the folder `/home/ftpuser/surf-app/dist`. Therefore for production, I set the value of `DIST_FOLDER` as `/home/ftpuser/surf-app/dist`. Don't forget to change the value of `DIST_FOLDER` while moving to another Cloud.
 
@@ -95,9 +97,21 @@ To install this project do these actions:
 
 - run `git clone https://github.com/vitalii-andriiovskyi/surf-app.git`
 - run `yarn` to install packages
-- create the db `surf` in the `MongoDB`
-- import files from the folder [`db`](./db) into `MongoDB`. The folder `db` is in the root of the project
+- start Docker Desktop
+- `docker-compose up --build` | `docker-compose down` | `docker-compose up -d`
 
 To run the `api` use the command `yarn start:express-server`.  
 To run the `surfer-app` use the command `ng serve`.  
 To run project compiled with Angular Universal use the command `yarn serve:ssr`.
+
+## To generate and publish docker images for production
+
+to build and publish image `surf-ssr`:
+`yarn build:ssr`
+`docker build -f dockerfile.production --target surf-ssr -t 2467100/surf-ssr:latest -t 2467100/surf-ssr:1.0 .`
+`docker push 2467100/surf-ssr:1.0`
+`docker push 2467100/surf-ssr:latest`
+
+to start docker-compose for production on local:  
+`docker-compose -f docker-compose.yml -f docker-compose.prod.yml up` or  
+`docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build`  

@@ -1,7 +1,7 @@
 // var express = require('express');
 import Post from '../models/post';
 import getLogger from '../libs/log';
-const logger = getLogger(module);
+const logger = getLogger(__filename);
 
 import { pipe, bindNodeCallback  } from 'rxjs';
 import { switchMap, map, catchError  } from 'rxjs/operators';

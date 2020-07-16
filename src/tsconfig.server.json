@@ -4,7 +4,9 @@
     "outDir": "../out-tsc/app-server",
     "baseUrl": "./",
     "module": "commonjs",
-    "types": []
+    "types": [
+      "@types/node"
+    ]
   },
   "angularCompilerOptions": {
     "entryModule": "app/app.server.module#AppServerModule"

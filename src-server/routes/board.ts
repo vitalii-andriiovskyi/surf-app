@@ -1,7 +1,7 @@
 // var express = require('express');
 import Board from '../models/board';
 import getLogger from '../libs/log';
-const logger = getLogger(module);
+const logger = getLogger(__filename);
 
 import { pipe, bindNodeCallback  } from 'rxjs';
 import { switchMap, map, catchError  } from 'rxjs/operators';

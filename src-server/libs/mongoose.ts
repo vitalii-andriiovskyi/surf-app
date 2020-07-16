@@ -6,7 +6,7 @@ const config = nconf;
 // const config = require('/src-server/config');
 
 mongoose
-  .connect(config.get('mongoose:uri'), config.get('mongoose:options'))
+  .connect(process.env.MONGO_DB_URI, config.get('mongoose:options'))
   .catch(err => console.log('mongoose connection error: ', err));
 mongoose.set('useCreateIndex', true);
 export default mongoose;

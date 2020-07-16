@@ -34,7 +34,7 @@ import { RouterLinkStubDirective, RouterOutletStubComponent } from '../testing';
     FacebookModule.forRoot(),
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: false}),
     BrowserAnimationsModule,
     TopMenuModule,
     SurfHomeModule,

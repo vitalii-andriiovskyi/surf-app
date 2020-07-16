@@ -1,0 +1,10 @@
+version: '3.8'
+
+services: 
+  surf-app:
+    restart: always
+    environment: 
+      PRODUCTION: 'true'
+
+  mongo_db:
+    restart: always

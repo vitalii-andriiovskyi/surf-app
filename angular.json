@@ -7,6 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
+      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -126,7 +127,8 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
             "browserTarget": "surfer-app:build",
-            "serverTarget": "surfer-app:server"
+            "serverTarget": "surfer-app:server",
+            "port": 4040
           },
           "configurations": {
             "production": {

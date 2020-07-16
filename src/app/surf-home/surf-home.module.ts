@@ -14,14 +14,14 @@ import { SurfSectionAboutUsComponent } from './surf-section-about-us/surf-sectio
 import { SurfSectionTeamComponent } from './surf-section-team/surf-section-team.component';
 import { SurfSectionBlogComponent } from './surf-section-blog/surf-section-blog.component';
 import { SurfSectionSocNetComponent } from './surf-section-soc-nets/surf-section-soc-net.component';
-import { YoutubePlayerModule } from 'ngx-youtube-player';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 @NgModule({
   imports: [
     SharedModule,
     SurfCarouselModule,
-    YoutubePlayerModule,
+    YouTubePlayerModule,
     SurfHomeRoutingModule,
     CarouselModule
   ],

@@ -1,23 +1,27 @@
 import * as express from 'express';
 const router = express.Router();
 
+import { getBoard, getBoards } from './board';
+import { getPostsHome, getPosts, getRx } from './post';
+import { getTeam, getWorker } from './team-member';
+
 
 /* GET home page. */
 router
   // .get('/',  function(req, res, next) {
   //   res.send('respond with a resource');
   // })
-  .get('/posts-home', require('./post').getPostsHome)
-  .get('/posts', require('./post').getPosts)
-  .get('/post/:id', require('./post').getRx)
-  .get('/boards', require('./board').getBoards)
-  .get('/board/:id', require('./board').getBoard)
-  .get('/teamHome', require('./team-member').getTeam)
-  .get('/team/:id', require('./team-member').getWorker)
+  .get('/posts-home', getPostsHome)
+  .get('/posts', getPosts)
+  .get('/post/:id', getRx)
+  .get('/boards', getBoards)
+  .get('/board/:id', getBoard)
+  .get('/teamHome', getTeam)
+  .get('/team/:id', getWorker)
   .get('*', (req, res) => {
     res.status(404).send('data requests are not supported');
   });
 
   // console.log(router);
 
-module.exports = router;
+export default router;

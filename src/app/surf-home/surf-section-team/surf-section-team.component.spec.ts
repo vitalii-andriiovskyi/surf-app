@@ -14,6 +14,7 @@ import { TeamData  } from './team-data';
 import { ActivatedRoute, ActivatedRouteStub, Router, RouterStub, RouterLinkStubDirective } from '../../../testing/router-stubs';
 import { teamData } from '../../core/services/ajax-api.mock-data';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 let activatedRoute: ActivatedRouteStub;
 
@@ -35,7 +36,7 @@ describe('SurfSectionTeamComponent', () => {
     // getTeamDataSpy = teamService.getTeamData.and.returnValue( of(teamDatas) );
 
     TestBed.configureTestingModule({
-      imports: [ CarouselModule ],
+      imports: [ CarouselModule, NoopAnimationsModule ],
       declarations: [
         SurfSectionTeamComponent,
         RouterLinkStubDirective,

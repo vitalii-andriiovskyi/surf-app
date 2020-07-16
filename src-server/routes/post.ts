@@ -1,11 +1,12 @@
 // var express = require('express');
-const Post = require('/src-server/models/post').Post;
-const logger = require('/src-server/libs/log')(module);
+import Post from '../models/post';
+import getLogger from '../libs/log';
+const logger = getLogger(__filename);
 
 import { pipe, bindNodeCallback  } from 'rxjs';
 import { switchMap, map, catchError  } from 'rxjs/operators';
 
-module.exports.get = function(req, res, next) {
+export function getPost(req, res, next) {
   Post.findOne( { 'id': req.params.id }, (err, post) => {
 
     if (err) {
@@ -22,7 +23,7 @@ module.exports.get = function(req, res, next) {
 };
 
 // version with RxJS; It helped to solve issue: "Can't set Headers after they are sent"
-module.exports.getRx = function(req, res, next) {
+export function getRx(req, res, next) {
   bindNodeCallback(Post.findOne).call(Post, {'id': req.params.id })
     .pipe(
       catchError(err => { throw err; } ),
@@ -40,10 +41,10 @@ module.exports.getRx = function(req, res, next) {
         next(err);
       }
     );
-};
+}
 
 
-module.exports.getPosts = function(req, res, next) {
+export function getPosts(req, res, next) {
   let maxNumberDoc = 50;
   const quantity = +req.query.quantity;
   if (quantity && typeof quantity === 'number') {
@@ -63,10 +64,10 @@ module.exports.getPosts = function(req, res, next) {
       res.json(posts);
     });
 
-};
+}
 
 // should give 3 last post article
-module.exports.getPostsHome = function(req, res, next) {
+export function getPostsHome(req, res, next) {
   Post.find( { }, (err, posts) => {
     if (err) { return next(err); }
 
@@ -76,5 +77,5 @@ module.exports.getPostsHome = function(req, res, next) {
 
     res.json(posts);
   });
-};
+}
 

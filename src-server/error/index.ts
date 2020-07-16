@@ -16,4 +16,4 @@ export class HttpError extends Error {
 }
 HttpError.prototype.name = 'HttpError';
 
-module.exports.HttpError = HttpError;
+export default HttpError;

@@ -1,0 +1,22 @@
+version: '3.8'
+
+services: 
+  surf-app:
+    container_name: surf-app
+    working_dir: /usr/src/surf-api
+    build:
+      context: ./
+      target: surf-api
+    command: yarn dev:ssr
+    # command: yarn start:express-server    # to start ts-node
+    volumes: 
+      - ./src:/usr/src/surf-api/src
+      - ./src-server:/usr/src/surf-api/src-server
+      - ./server.ts:/usr/src/surf-api/server.ts
+      - ./dist:/usr/src/surf-api/dist
+  
+  mongo_db:
+    container_name: mongo__db
+    build: 
+      context: ./
+      target: mongo

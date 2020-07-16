@@ -1,0 +1,7 @@
+FROM node:12 AS surf-ssr
+WORKDIR /usr/src/surf-api
+COPY ./dist ./dist
+COPY package.json ./
+RUN yarn config set unsafe-perm true && yarn --pure-lockfile
+EXPOSE 4040
+CMD ["node", "dist/surfer-app-server/main.js"]

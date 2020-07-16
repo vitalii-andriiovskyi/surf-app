@@ -1,6 +1,7 @@
 // var express = require('express');
-const Board = require('/src-server/models/board').Board;
-const logger = require('/src-server/libs/log')(module);
+import Board from '../models/board';
+import getLogger from '../libs/log';
+const logger = getLogger(__filename);
 
 import { pipe, bindNodeCallback  } from 'rxjs';
 import { switchMap, map, catchError  } from 'rxjs/operators';
@@ -8,7 +9,7 @@ import { switchMap, map, catchError  } from 'rxjs/operators';
 
 
 // version with RxJS; It helped to solve issue: "Can't set Headers after they are sent"
-module.exports.getBoard = function(req, res, next) {
+export function getBoard(req, res, next) {
   bindNodeCallback(Board.findOne).call(Board, {'id': req.params.id })
     .pipe(
       catchError(err => { throw err; } ),
@@ -28,10 +29,10 @@ module.exports.getBoard = function(req, res, next) {
         next(err);
       }
     );
-};
+}
 
 
-module.exports.getBoards = function(req, res, next) {
+export function getBoards(req, res, next) {
   Board.find({ }, (err, boards) => {
     if (err) {
       return next(err);
@@ -43,5 +44,4 @@ module.exports.getBoards = function(req, res, next) {
 
     res.json(boards);
   });
-};
-
+}

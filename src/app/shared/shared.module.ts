@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarCollapseDirective } from './navbar-collapse.directive';
 import { CurrentHeightDirective } from './currentHeight.directive';
-import { FacebookModule } from 'ngx-facebook';
+import { FacebookModule } from 'ngx-facebook-fb';
 
 import { HandleLinkDirective } from './handle-link.directive';
 import { AddContentDirective } from './add-content.directive';

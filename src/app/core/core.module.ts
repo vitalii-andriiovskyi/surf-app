@@ -17,6 +17,7 @@ import { Logger } from './services/logger.service';
 import { SwUpdatesService } from './sw-updates/sw-updates.service';
 import { ScrollDirective } from './directives/scroll.directive';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
+import { DOCUMENT_PROVIDERS } from './services/document-ref.service';
 
 @NgModule({
   imports:      [ CommonModule, SurfCarouselModule ],
@@ -38,6 +39,7 @@ import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
     // browserWindowProvider,
     // windowProvider,
     WINDOW_PROVIDERS,
+    DOCUMENT_PROVIDERS,
     ResizeService,
     MenuService,
     PassScrollingDataService,
@@ -64,7 +66,7 @@ export class CoreModule {
     };
   }*/
 
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<CoreModule> {
     return {
       ngModule: CoreModule
     };
